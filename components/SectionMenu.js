@@ -7,8 +7,8 @@ export default function SectionMenu({ sections }) {
     <Box
       position="sticky"
       top={-1}
-      marginTop={-50}
       backgroundColor="white"
+      borderTop="1px solid rgba(0,0,0,0.1)"
       borderBottom="1px solid rgba(0,0,0,0.1)"
       display="flex"
       justifyContent="center"

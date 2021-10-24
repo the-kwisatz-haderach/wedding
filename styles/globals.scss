@@ -31,24 +31,8 @@ a {
 
 .gradient-text {
   color: #f35626;
-  background-image: -webkit-linear-gradient(122deg, #ffabab, #ff7a7a, #ffb6b6);
+  background-image: -webkit-linear-gradient(122deg, #fff7ab, #f5db68, #fff2b6);
+  // background-image: -webkit-linear-gradient(122deg, #ffabab, #ff7a7a, #ffb6b6);
   background-clip: text;
   -webkit-text-fill-color: transparent;
-}
-
-.heart {
-  position: absolute;
-  top: -5px;
-  z-index: 10;
-  font-size: 5px;
-  transform: translateY(0);
-  opacity: 1;
-  animation: fall 4s ease-out;
-}
-
-@keyframes fall {
-  to {
-    transform: translateY(105vh);
-    opacity: 0;
-  }
 }
