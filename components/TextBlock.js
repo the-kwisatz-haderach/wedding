@@ -1,5 +1,5 @@
 import React from "react";
-import { Box, Container, Heading, Text } from "@chakra-ui/layout";
+import { Container, Heading, Text } from "@chakra-ui/layout";
 
 export default function TextBlock({ title, description }) {
   return (

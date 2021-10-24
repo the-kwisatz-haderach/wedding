@@ -42,11 +42,13 @@ a {
   z-index: 10;
   font-size: 5px;
   transform: translateY(0);
-  animation: fall 3s ease-in forwards;
+  opacity: 1;
+  animation: fall 4s ease-out;
 }
 
 @keyframes fall {
   to {
     transform: translateY(105vh);
+    opacity: 0;
   }
 }
