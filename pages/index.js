@@ -7,8 +7,7 @@ import { Box, Container } from "@chakra-ui/layout";
 import MainLayout from "../components/MainLayout";
 import SectionMenu from "../components/SectionMenu";
 import TextBlock from "../components/TextBlock";
-import rings from "../images/diamond_color.png";
-import hero from "../images/hero.jpeg";
+import rings from "../images/wedding-rings.png";
 import "../images/heart.svg";
 
 function createHeart() {
@@ -67,13 +66,14 @@ export default function Home() {
       <Box scrollBehavior="smooth" overflowY="scroll" height="100vh">
         <Box
           position="relative"
-          height="50vh"
+          py={10}
+          height="70vh"
           display="flex"
           alignItems="center"
           justifyContent="center"
           flexDir="column"
         >
-          <Image src={rings} width={50} height={50} alt="Rings" />
+          <Image src={rings} width={70} height={70} alt="Rings" />
           <TextBlock
             title="Welcome to our big fat Croatian wedding"
             description="Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni, quaerat?"
