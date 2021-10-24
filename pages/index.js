@@ -24,7 +24,12 @@ const Backdrop = () => {
 
   useEffect(() => {
     let interval;
-    if (ref.current) {
+    if (
+      ref.current &&
+      !/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+        navigator.userAgent
+      )
+    ) {
       interval = setInterval(function () {
         const heart = createHeart();
         ref.current.appendChild(heart);
