@@ -13,7 +13,7 @@ export default function MainLayout({ children }) {
   const [isOpen, setIsOpen] = useState(false);
   return (
     <>
-      <Box position="fixed" right={8} bottom={4} zIndex={10}>
+      <Box position="fixed" right={8} bottom={4} zIndex={1000}>
         <Button colorScheme="red" onClick={() => setIsOpen((curr) => !curr)}>
           Pages
         </Button>

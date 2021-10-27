@@ -1,5 +1,6 @@
-import React, { Fragment } from "react";
-import { Container } from "@chakra-ui/layout";
+import React from "react";
+import Image from "next/image";
+import { Box, Container, Heading } from "@chakra-ui/layout";
 import SectionMenu from "./SectionMenu";
 
 export default function Sections({ sections }) {
@@ -8,16 +9,26 @@ export default function Sections({ sections }) {
       <SectionMenu
         sections={sections.map(({ id, label }) => ({ id, label }))}
       />
-      <Container
-        as="main"
-        maxW="container.xl"
-        backgroundColor="white"
-        zIndex={10}
-      >
-        {sections.map(({ id, content }) => (
-          <Fragment key={id}>{content}</Fragment>
+      <Box backgroundColor="white">
+        {sections.map(({ contained = false, id, content, label, imgSrc }) => (
+          <div key={id}>
+            <Container
+              maxW="container.xl"
+              display="flex"
+              alignItems="center"
+              py={8}
+            >
+              <Image src={imgSrc} width={60} height={60} alt="Rings" />
+              <Heading marginLeft={4} size="xl">
+                {label}
+              </Heading>
+            </Container>
+            <Container maxW={contained ? "container.xl" : "none"}>
+              {content}
+            </Container>
+          </div>
         ))}
-      </Container>
+      </Box>
     </>
   );
 }

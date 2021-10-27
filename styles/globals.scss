@@ -36,3 +36,53 @@ a {
   background-clip: text;
   -webkit-text-fill-color: transparent;
 }
+
+.hero-heart {
+  overflow: hidden;
+  clip-path: path(
+    "M97.201 6.583 C 60.546 14.578,37.512 48.451,40.079 90.585 C 41.762 118.226,51.151 140.326,77.931 179.680 C 147.921 282.534,182.123 346.881,186.219 383.407 C 187.236 392.478,189.400 396.023,194.744 397.378 C 203.031 399.479,206.068 394.941,208.149 377.346 C 213.590 331.353,238.377 295.838,299.452 246.532 C 346.138 208.842,360.679 192.896,373.948 164.842 C 403.880 101.554,373.099 25.317,317.673 25.463 C 287.342 25.543,257.675 47.080,241.758 80.575 L 237.428 89.687 235.719 82.885 C 223.510 34.280,151.664 -5.296,97.201 6.583"
+  );
+  position: relative;
+}
+
+.hero-text {
+  transform: scale(0);
+  animation: grow 1s ease-in-out 0.5s infinite;
+}
+
+.fill {
+  fill-opacity: 1 !important;
+}
+
+.draw {
+  @media screen and (min-width: 768px) {
+    width: 500px;
+    height: 500px;
+  }
+}
+
+.draw path {
+  stroke: #fc9292;
+  stroke-width: 3;
+  fill-opacity: 0;
+  fill: #fc9292;
+  stroke-dasharray: 1400;
+  stroke-dashoffset: 1400;
+  animation: dash 4s 1s ease-in-out forwards;
+  transition: fill-opacity 1.2s ease-in-out;
+}
+
+@keyframes dash {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes grow {
+  from {
+    transform: scale(0);
+  }
+  to {
+    transform: scale(1);
+  }
+}

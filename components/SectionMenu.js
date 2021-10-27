@@ -6,14 +6,14 @@ export default function SectionMenu({ sections }) {
   return (
     <Box
       position="sticky"
-      top={-1}
+      zIndex={10}
+      top={0}
       backgroundColor="white"
-      borderTop="1px solid rgba(0,0,0,0.1)"
       borderBottom="1px solid rgba(0,0,0,0.1)"
       display="flex"
       justifyContent="center"
       alignItems="center"
-      height={50}
+      height="60px"
     >
       {sections.map((section) => (
         <SectionLink key={section.id} id={section.id}>
