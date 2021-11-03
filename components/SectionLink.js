@@ -16,7 +16,7 @@ export default function SectionLink({ children, id, isActive }) {
   };
 
   return (
-    <Button variant="ghost" onClick={onClick}>
+    <Button marginRight={2} variant="ghost" size="lg" onClick={onClick}>
       {children}
     </Button>
   );

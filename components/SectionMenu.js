@@ -10,16 +10,20 @@ export default function SectionMenu({ sections }) {
       top={0}
       backgroundColor="white"
       borderBottom="1px solid rgba(0,0,0,0.1)"
+      height="70px"
       display="flex"
-      justifyContent="center"
+      overflowX="scroll"
+      className="hide-scrollbar"
       alignItems="center"
-      height="60px"
+      justifyContent={["flex-start", "flex-start", "center"]}
     >
-      {sections.map((section) => (
-        <SectionLink key={section.id} id={section.id}>
-          {section.label}
-        </SectionLink>
-      ))}
+      <Box w="fit-content" display="flex">
+        {sections.map((section) => (
+          <SectionLink key={section.id} id={section.id}>
+            {section.label}
+          </SectionLink>
+        ))}
+      </Box>
     </Box>
   );
 }

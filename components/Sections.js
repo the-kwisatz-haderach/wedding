@@ -11,22 +11,34 @@ export default function Sections({ sections }) {
       />
       <Box backgroundColor="white">
         {sections.map(({ contained = false, id, content, label, imgSrc }) => (
-          <div key={id}>
+          <Box
+            key={id}
+            className="alternate"
+            id={id}
+            paddingBottom="6rem"
+            paddingTop="3rem"
+            borderBottom="1px solid rgba(0,0,0,0.1)"
+          >
             <Container
-              maxW="container.xl"
+              maxW="container.lg"
               display="flex"
-              alignItems="center"
+              alignItems="flex-end"
+              justifyContent={["center", "center", "flex-start"]}
               py={8}
+              marginBottom={3}
             >
               <Image src={imgSrc} width={60} height={60} alt="Rings" />
-              <Heading marginLeft={4} size="xl">
+              <Heading marginLeft={6} size="xl">
                 {label}
               </Heading>
             </Container>
-            <Container maxW={contained ? "container.xl" : "none"}>
+            <Container
+              maxW={contained ? "container.lg" : "none"}
+              padding={contained ? undefined : 0}
+            >
               {content}
             </Container>
-          </div>
+          </Box>
         ))}
       </Box>
     </>
