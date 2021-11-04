@@ -35,9 +35,10 @@ a {
 
 .gradient-text {
   color: #f35626;
-  background-image: -webkit-linear-gradient(122deg, #fff7ab, #f5db68, #fff2b6);
+  background-image: -webkit-linear-gradient(149deg, #fff7ab, #ffe77c, #fff3bc);
   // background-image: -webkit-linear-gradient(122deg, #ffabab, #ff7a7a, #ffb6b6);
   background-clip: text;
+  -webkit-text-stroke: 0.1px #fff4b475;
   -webkit-text-fill-color: transparent;
 }
 
@@ -58,27 +59,50 @@ a {
   fill-opacity: 1 !important;
 }
 
-.draw {
-  @media screen and (min-width: 768px) {
-    width: 500px;
-    height: 500px;
-  }
-}
-
 .draw path {
-  stroke: #fc9292;
-  stroke-width: 3;
+  stroke: #fff7ab;
+  // stroke: #fc9292;
+  stroke-width: 10;
   fill-opacity: 0;
-  fill: #fc9292;
+  fill: #fff7ab;
+  // fill: #fc9292;
   stroke-dasharray: 1400;
   stroke-dashoffset: 1400;
-  animation: dash 4s 1s ease-in-out forwards;
+  animation: dash 2s 2s ease-in-out forwards;
   transition: fill-opacity 1.2s ease-in-out;
 }
 
 @keyframes dash {
   to {
     stroke-dashoffset: 0;
+  }
+}
+
+.slide-left {
+  transform: translateX(100vw);
+  animation: slideLeft 1.2s 1s ease-out forwards;
+}
+
+.slide-right {
+  transform: translateX(-100vw);
+  animation: slideRight 1.2s ease-out forwards;
+}
+
+@keyframes slideRight {
+  from {
+    transform: translateX(-100vw);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideLeft {
+  from {
+    transform: translateX(100vw);
+  }
+  to {
+    transform: translateX(0);
   }
 }
 

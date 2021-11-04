@@ -3,7 +3,7 @@
   top: -10vh;
   z-index: 10;
   font-size: 5px;
-  color: #f07a7a;
+  color: white;
   opacity: 1;
   animation: fall 4s ease-out infinite;
 }

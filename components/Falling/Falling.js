@@ -7,7 +7,7 @@ export function Falling({ children, delay = 0 }) {
       className={styles.root}
       style={{
         left: Math.random() * 100 + "vw",
-        fontSize: Math.random() * 24 + "px",
+        fontSize: Math.random() * 42 + "px",
         transform: `translateY(0) rotate3d(${Math.random() * 10}, ${
           Math.random() * -10
         }, ${Math.random() * 10}, 0deg)`,
