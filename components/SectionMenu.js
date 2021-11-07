@@ -9,7 +9,7 @@ export default function SectionMenu({ sections }) {
       zIndex={10}
       top={0}
       backgroundColor="white"
-      borderBottom="1px solid rgba(0,0,0,0.1)"
+      boxShadow="0 20px 45px -25px #0000001c"
       height="70px"
       display="flex"
       overflowX="scroll"

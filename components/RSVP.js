@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
+import Image from "next/image";
 import { SimpleGrid, Box, Flex, Text } from "@chakra-ui/layout";
+import { useToast } from "@chakra-ui/toast";
 import { Spinner } from "@chakra-ui/react";
 import { CheckIcon, UnlockIcon } from "@chakra-ui/icons";
 import { Collapse } from "@chakra-ui/transition";
@@ -23,12 +25,15 @@ import {
   Button,
 } from "@chakra-ui/react";
 import { nanoid } from "nanoid";
+import { useTranslation } from "react-i18next";
 
 const RSVP_ID_KEY = "rsvp-id";
 
 // RSVP deadline
 
 export default function RSVP() {
+  const { t } = useTranslation("rsvp");
+  const toast = useToast();
   const [hasResponded, setHasResponded] = useState(
     Boolean(
       typeof window !== "undefined" && window.localStorage.getItem(RSVP_ID_KEY)
@@ -70,6 +75,17 @@ export default function RSVP() {
       setHideForm(true);
     }
     setIsLoadingFormData(false);
+    toast({
+      title: t("toastTitle"),
+      description: willAttend
+        ? t("positiveToastDescription")
+        : t("negativeToastDescription"),
+      status: "success",
+      position: "top",
+      variant: "subtle",
+      duration: 4000,
+      isClosable: true,
+    });
   };
 
   const onGetRowData = async () => {
@@ -112,9 +128,9 @@ export default function RSVP() {
             <CheckIcon color="white" fontSize="xl" />
           )}
         </Box>
-        <Text mb={5}>Thank you for responding!</Text>
+        <Text mb={5}>{t("thankYouForResponding")}</Text>
         <Button disabled={isLoadingFormData} onClick={onGetRowData}>
-          {isLoadingFormData ? "Loading..." : "Update response"}
+          {isLoadingFormData ? "Loading..." : t("updateResponse")}
         </Button>
       </Flex>
     );
@@ -122,7 +138,7 @@ export default function RSVP() {
 
   return (
     <form onSubmit={onSubmit}>
-      <SimpleGrid spacing="4" w="100%">
+      <SimpleGrid spacing="6" w="100%">
         <Checkbox
           flex={1}
           isChecked={willAttend}
@@ -130,11 +146,11 @@ export default function RSVP() {
           size="lg"
           marginBottom="1rem"
         >
-          Yes, we will attend.
+          {t("attendanceLabel")}
         </Checkbox>
         <FormControl id="name">
           <FormLabel fontWeight="bold" fontSize="sm">
-            Name(s)
+            {t("nameLabel")}
           </FormLabel>
           <Input
             isRequired
@@ -148,11 +164,12 @@ export default function RSVP() {
         <Collapse in={willAttend} animateOpacity>
           <FormControl id="guests">
             <FormLabel fontSize="sm" fontWeight="bold">
-              Total Guests
+              {t("guestsLabel")}
             </FormLabel>
             <Box display="flex" w="100%">
               <NumberInput
                 size="lg"
+                display={["none", "block"]}
                 w={["100%", "initial"]}
                 mr={[0, "2rem"]}
                 value={guests}
@@ -167,7 +184,6 @@ export default function RSVP() {
                 </NumberInputStepper>
               </NumberInput>
               <Slider
-                display={["none", "block"]}
                 flex="1"
                 size="lg"
                 min={0}
@@ -187,12 +203,22 @@ export default function RSVP() {
           </FormControl>
           <Checkbox
             marginTop="1rem"
+            marginRight="1rem"
             flex={1}
             isChecked={hasKids}
             size="lg"
             onChange={() => setHasKids((curr) => !curr)}
           >
-            We&apos;re bringing the kids.
+            {t("childrenLabel")}
+          </Checkbox>
+          <Checkbox
+            marginTop="1rem"
+            flex={1}
+            size="lg"
+            isChecked={wantsHotelArrangements}
+            onChange={() => setWantsHotelArrangements((curr) => !curr)}
+          >
+            {t("hotelArrangementLabel")}
           </Checkbox>
           <Box>
             <Checkbox
@@ -202,43 +228,33 @@ export default function RSVP() {
               isChecked={wantsPhotos}
               onChange={() => setWantsPhotos((curr) => !curr)}
             >
-              We&apos;d like copies of the wedding photos
+              {t("photosLabel")}
             </Checkbox>
             <Collapse in={wantsPhotos} animateOpacity>
               <FormControl id="email">
                 <FormLabel fontWeight="bold" fontSize="sm">
-                  Email
+                  {t("emailLabel")}
                 </FormLabel>
                 <Input
                   isRequired={wantsPhotos}
                   size="lg"
                   autoComplete="email"
-                  placeholder="your.email@here.com"
+                  placeholder="email@gmail.com"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                 />
               </FormControl>
             </Collapse>
           </Box>
-          <Checkbox
-            marginTop="1rem"
-            flex={1}
-            size="lg"
-            isChecked={wantsHotelArrangements}
-            onChange={() => setWantsHotelArrangements((curr) => !curr)}
-          >
-            We&apos;d like help with hotel arrangements
-          </Checkbox>
         </Collapse>
         <FormControl id="message">
           <FormLabel fontSize="sm" fontWeight="bold">
-            Message
+            {t("messageLabel")}
           </FormLabel>
           <Textarea
             size="lg"
             colorScheme="red"
             value={comments}
-            placeholder="Here is a sample placeholder"
             onChange={(e) => setComments(e.target.value)}
           />
         </FormControl>
@@ -250,7 +266,7 @@ export default function RSVP() {
                 Loading...
               </>
             ) : (
-              "Send response"
+              t("submitResponse")
             )}
           </Button>
         </Flex>

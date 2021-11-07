@@ -1,0 +1,16 @@
+{
+  "thankYouForResponding": "Tack för ditt svar!",
+  "updateResponse": "Uppdatera svar",
+  "attendanceLabel": "Ja, vi kommer!",
+  "nameLabel": "Namn",
+  "guestsLabel": "Gäster",
+  "childrenLabel": "Vi har barn",
+  "photosLabel": "Vi vill ha bröllopsfoton",
+  "emailLabel": "Email",
+  "hotelArrangementLabel": "Vi vill ha hjälp med hotellbokning",
+  "messageLabel": "Meddelande",
+  "submitResponse": "Skicka svar",
+  "toastTitle": "Svar skickat",
+  "positiveToastDescription": "Vad kul att ni vill fira med oss!",
+  "negativeToastDescription": "Vad tråkigt att ni inte vill fira med oss!"
+}

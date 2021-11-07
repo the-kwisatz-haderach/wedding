@@ -14,6 +14,21 @@ const theme = extendTheme({
       100: "#FF5F5F",
     },
   },
+  components: {
+    Table: {
+      parts: ["th", "caption"],
+      baseStyle: {
+        th: {
+          fontFamily: "body",
+          fontWeight: "bold",
+        },
+        caption: {
+          fontFamily: "body",
+          fontWeight: "bold",
+        },
+      },
+    },
+  },
 });
 
 function MyApp({ Component, pageProps }) {

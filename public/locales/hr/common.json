@@ -1,3 +1,9 @@
 {
-  "title": "Titlo"
+  "title": "titel",
+  "loading": "laddar",
+  "venue": "plats",
+  "weddingDay": "bröllopsdag",
+  "photos": "foton",
+  "rsvp": "rsvp",
+  "phrases": "fraser"
 }

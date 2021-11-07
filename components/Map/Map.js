@@ -5,8 +5,8 @@ import styles from "./styles";
 
 const defaultProps = {
   center: {
-    lat: 43.3526625,
-    lng: 17.5108039,
+    lat: 43.3662828,
+    lng: 17.5254679,
   },
   zoom: 12,
 };
@@ -15,19 +15,27 @@ const options = {
   panControl: false,
   mapTypeControl: false,
   scrollwheel: false,
+  // draggable: false,
+  fullscreenControl: false,
 };
 
 const locations = [
   {
-    lat: 43.34374435687136,
-    lng: 17.4321523533025,
+    lat: 43.3394754,
+    lng: 17.43006,
     title: "The Party",
     content: <p>Hello</p>,
   },
   {
-    lat: 43.382555357836196,
-    lng: 17.592567158037884,
+    lat: 43.387034744817086,
+    lng: 17.59122205063004,
     title: "The Parents",
+    content: <p>Hello</p>,
+  },
+  {
+    lat: 43.37495449452526,
+    lng: 17.588585935105154,
+    title: "The Church",
     content: <p>Hello</p>,
   },
 ];

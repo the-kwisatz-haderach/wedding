@@ -17,7 +17,6 @@ export default function Sections({ sections }) {
             id={id}
             paddingBottom="6rem"
             paddingTop="3rem"
-            borderBottom="1px solid rgba(0,0,0,0.1)"
           >
             <Container
               maxW="container.lg"
@@ -28,7 +27,7 @@ export default function Sections({ sections }) {
               marginBottom={3}
             >
               <Image src={imgSrc} width={60} height={60} alt="Rings" />
-              <Heading marginLeft={6} size="xl">
+              <Heading marginLeft={6} size="xl" textTransform="capitalize">
                 {label}
               </Heading>
             </Container>

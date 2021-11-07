@@ -35,10 +35,9 @@ a {
 
 .gradient-text {
   color: #f35626;
-  background-image: -webkit-linear-gradient(149deg, #fff7ab, #ffe77c, #fff3bc);
-  // background-image: -webkit-linear-gradient(122deg, #ffabab, #ff7a7a, #ffb6b6);
+  // background-image: -webkit-linear-gradient(149deg, #fff7ab, #ffe77c, #fff3bc);
+  background-image: linear-gradient(121deg, #ff7272, #ffacac, #f57373);
   background-clip: text;
-  -webkit-text-stroke: 0.1px #fff4b475;
   -webkit-text-fill-color: transparent;
 }
 
@@ -60,15 +59,15 @@ a {
 }
 
 .draw path {
-  stroke: #fff7ab;
+  stroke: #ff7272;
   // stroke: #fc9292;
   stroke-width: 10;
   fill-opacity: 0;
-  fill: #fff7ab;
+  fill: #ff7272;
   // fill: #fc9292;
   stroke-dasharray: 1400;
   stroke-dashoffset: 1400;
-  animation: dash 2s 2s ease-in-out forwards;
+  animation: dash 2s 0.5s ease-in-out forwards;
   transition: fill-opacity 1.2s ease-in-out;
 }
 
@@ -121,5 +120,5 @@ textarea {
 }
 
 .alternate:nth-child(odd) {
-  background-color: rgb(229 62 62 / 4%) !important;
+  background-color: rgb(120 120 120 / 4%) !important;
 }
