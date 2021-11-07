@@ -28,7 +28,12 @@ export default function Phrases() {
         pt={2}
         pb={4}
       >
-        <Flex flexWrap="wrap" justifyContent="space-between" px={10} py={6}>
+        <Flex
+          flexWrap="wrap"
+          justifyContent="space-between"
+          px={[4, 10]}
+          py={6}
+        >
           <Flex alignItems="center">
             <Image
               src={swedishFlag}
@@ -57,7 +62,7 @@ export default function Phrases() {
             <>
               <Divider />
               <Flex
-                px={10}
+                px={[4, 10]}
                 py={5}
                 key={phrase.phrase}
                 flexWrap="wrap"
