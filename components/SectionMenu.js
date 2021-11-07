@@ -6,7 +6,7 @@ export default function SectionMenu({ sections }) {
   return (
     <Box
       position="sticky"
-      zIndex={10}
+      zIndex={100}
       top={0}
       backgroundColor="white"
       boxShadow="0 20px 45px -25px #0000001c"

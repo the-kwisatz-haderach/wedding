@@ -17,7 +17,7 @@ export default function Home() {
         <meta name="description" content="Our Wedding Site" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Box overflowY="scroll" height="100vh" backgroundColor="gray.50">
+      <Box overflowY="scroll" height="100vh">
         <Header />
         <Sections sections={sections} />
       </Box>

@@ -1,18 +1,22 @@
+import { useState } from "react";
 import { Button } from "@chakra-ui/button";
 import Image from "next/image";
 import { Box, Stack, Text } from "@chakra-ui/layout";
 import pin from "../../images/pin.png";
 
-export const Pin = ({ title = "", text }) => (
-  <Box
-    width={55}
-    height={55}
-    position="relative"
-    transform="translate(-50%, -100%)"
-  >
-    <Image alt="Pin" src={pin} layout="fill" />
-  </Box>
-);
+export const Pin = ({ title = "", text }) => {
+  const [showContent, setShowContent] = useState(false);
+  return (
+    <Box
+      width={55}
+      height={55}
+      position="relative"
+      transform="translate(-50%, -100%)"
+    >
+      <Image alt="Pin" src={pin} layout="fill" />
+    </Box>
+  );
+};
 
 {
   /* <Box
