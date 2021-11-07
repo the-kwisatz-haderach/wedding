@@ -1,9 +1,8 @@
-import React, { useEffect, useState } from "react";
-import Image from "next/image";
+import React, { useState } from "react";
 import { SimpleGrid, Box, Flex, Text } from "@chakra-ui/layout";
 import { useToast } from "@chakra-ui/toast";
 import { Spinner } from "@chakra-ui/react";
-import { CheckIcon, UnlockIcon } from "@chakra-ui/icons";
+import { CheckIcon } from "@chakra-ui/icons";
 import { Collapse } from "@chakra-ui/transition";
 import {
   NumberInput,
@@ -20,9 +19,9 @@ import {
   Textarea,
   FormControl,
   FormLabel,
-  FormErrorMessage,
-  FormHelperText,
   Button,
+  Radio,
+  RadioGroup,
 } from "@chakra-ui/react";
 import { nanoid } from "nanoid";
 import { useTranslation } from "react-i18next";
@@ -41,7 +40,7 @@ export default function RSVP() {
   );
   const [isLoadingFormData, setIsLoadingFormData] = useState(false);
   const [hideForm, setHideForm] = useState(hasResponded);
-  const [willAttend, setWillAttend] = useState(true);
+  const [willAttend, setWillAttend] = useState("TRUE");
   const [name, setName] = useState("");
   const [guests, setGuests] = useState(1);
   const [hasKids, setHasKids] = useState(false);
@@ -97,7 +96,7 @@ export default function RSVP() {
 
     const data = await response.json();
 
-    setWillAttend(data.status === "TRUE");
+    setWillAttend(data.status);
     setHasKids(data.children === "TRUE");
     setEmail(data.email);
     setGuests(Number.parseInt(data.guests));
@@ -144,16 +143,17 @@ export default function RSVP() {
       ) : (
         <form onSubmit={onSubmit}>
           <SimpleGrid spacing="6" w="100%">
-            <Checkbox
-              flex={1}
-              w="fit-content"
-              isChecked={willAttend}
-              onChange={() => setWillAttend((curr) => !curr)}
+            <RadioGroup
               size="lg"
+              value={willAttend}
+              onChange={setWillAttend}
               marginBottom="1rem"
             >
-              {t("attendanceLabel")}
-            </Checkbox>
+              <Radio marginRight={10} value="TRUE">
+                {t("positiveAttendanceLabel")}
+              </Radio>
+              <Radio value="FALSE">{t("negativeAttendanceLabel")}</Radio>
+            </RadioGroup>
             <FormControl id="name">
               <FormLabel fontWeight="bold" fontSize="sm">
                 {t("nameLabel")}

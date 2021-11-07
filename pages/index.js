@@ -17,9 +17,38 @@ export default function Home() {
         <meta name="description" content="Our Wedding Site" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Box overflowY="scroll" height="100vh">
+      <Box>
         <Header />
         <Sections sections={sections} />
+        <footer
+          style={{
+            padding: "2rem",
+            textAlign: "right",
+            color: "white",
+            backgroundColor: "#f57373",
+          }}
+        >
+          <div>
+            Icons made by{" "}
+            <a
+              href="https://www.freepik.com"
+              title="Freepik"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Freepik
+            </a>{" "}
+            from{" "}
+            <a
+              href="https://www.flaticon.com/"
+              title="Flaticon"
+              target="_blank"
+              rel="noreferrer"
+            >
+              www.flaticon.com
+            </a>
+          </div>
+        </footer>
       </Box>
     </>
   );

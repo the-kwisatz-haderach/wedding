@@ -1,7 +1,8 @@
 {
   "thankYouForResponding": "Tack för ditt svar!",
   "updateResponse": "Uppdatera svar",
-  "attendanceLabel": "Ja, vi kommer!",
+  "positiveAttendanceLabel": "Ja, vi kommer!",
+  "negativeAttendanceLabel": "We regret we cannot attend...",
   "nameLabel": "Namn",
   "guestsLabel": "Gäster",
   "childrenLabel": "Vi har barn",

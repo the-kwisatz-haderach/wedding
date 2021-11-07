@@ -5,7 +5,7 @@ import SectionMenu from "./SectionMenu";
 
 export default function Sections({ sections }) {
   return (
-    <>
+    <Box height="inherit">
       <SectionMenu
         sections={sections.map(({ id, label }) => ({ id, label }))}
       />
@@ -50,6 +50,6 @@ export default function Sections({ sections }) {
           </Container>
         </Box>
       ))}
-    </>
+    </Box>
   );
 }
