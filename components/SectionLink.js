@@ -8,11 +8,6 @@ export default function SectionLink({ children, id, isActive }) {
       block: "center",
       inline: "center",
     });
-    if (history.pushState) {
-      history.pushState(null, null, `#${id}`);
-    } else {
-      location.hash = id;
-    }
   };
 
   return (
