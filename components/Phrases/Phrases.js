@@ -3,6 +3,7 @@ import Image from "next/image";
 import { Box, Divider, Flex, Text } from "@chakra-ui/layout";
 import swedishFlag from "../../images/sweden.png";
 import croatianFlag from "../../images/croatia.png";
+import { useTranslation } from "react-i18next";
 
 const phrases = [
   {
@@ -16,10 +17,11 @@ const phrases = [
 ];
 
 export default function Phrases() {
+  const { t } = useTranslation();
   return (
     <Box>
       <Text textAlign="center" mb={7}>
-        Just some useful phrases...
+        {t("phrasesIntro")}
       </Text>
       <Box
         backgroundColor="white"

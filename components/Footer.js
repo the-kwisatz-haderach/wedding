@@ -1,17 +1,24 @@
+import { Box } from "@chakra-ui/layout";
 import React from "react";
 
 export default function Footer() {
   return (
-    <footer
+    <Box
+      as="footer"
+      flexDir={["column", "column", "column", "row"]}
+      justifyContent="flex-end"
       style={{
         padding: "2rem",
         display: "flex",
-        justifyContent: "flex-end",
         color: "white",
         backgroundColor: "#f57373",
       }}
     >
-      <div>
+      <div
+        style={{
+          marginRight: "1rem",
+        }}
+      >
         Icons made by{" "}
         <a
           href="https://www.freepik.com"
@@ -28,20 +35,12 @@ export default function Footer() {
           target="_blank"
           rel="noreferrer"
         >
-          www.flaticon.com
+          www.flaticon.com,
         </a>
       </div>
-      <span
-        style={{
-          marginLeft: 8,
-          marginRight: 8,
-        }}
-      >
-        |
-      </span>
       <a href="https://www.freepik.com/vectors/flower">
         Flower vector created by asrulaqroni - www.freepik.com
       </a>
-    </footer>
+    </Box>
   );
 }

@@ -1,14 +1,13 @@
 import React from "react";
 import GoogleMapReact from "google-map-react";
 import { Pin } from "./Pin";
-import styles from "./styles";
 
 const defaultProps = {
   center: {
     lat: 43.3662828,
-    lng: 17.5254679,
+    lng: 17.51,
   },
-  zoom: 12,
+  zoom: 11,
 };
 
 const options = {

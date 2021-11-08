@@ -13,9 +13,9 @@ export default function SectionLink({ children, id, index }) {
   return (
     <Button
       marginRight={2}
+      marginLeft={index > 0 ? undefined : 2}
       colorScheme={index > 0 ? undefined : "red"}
       variant={index > 0 ? "ghost" : "solid"}
-      size="lg"
       onClick={onClick}
       textTransform="capitalize"
     >
