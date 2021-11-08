@@ -167,7 +167,7 @@ export default function RSVP() {
                 onChange={(e) => setName(e.target.value)}
               />
             </FormControl>
-            <Collapse in={willAttend} animateOpacity>
+            <Collapse in={willAttend === "TRUE"} animateOpacity>
               <FormControl id="guests">
                 <FormLabel fontSize="sm" fontWeight="bold">
                   {t("guestsLabel")}

@@ -18,8 +18,8 @@ export default function SectionMenu({ sections }) {
       justifyContent={["flex-start", "flex-start", "center"]}
     >
       <Box w="fit-content" display="flex">
-        {sections.map((section) => (
-          <SectionLink key={section.id} id={section.id}>
+        {sections.map((section, index) => (
+          <SectionLink key={section.id} id={section.id} index={index}>
             {section.label}
           </SectionLink>
         ))}

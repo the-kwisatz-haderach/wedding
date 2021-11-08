@@ -11,10 +11,12 @@ import { Button } from "@chakra-ui/button";
 import swedishFlag from "../../images/sweden.png";
 import croatianFlag from "../../images/croatia.png";
 import { useRouter } from "next/dist/client/router";
+import { useTranslation } from "react-i18next";
 
 export default function Header() {
   const ref = useRef();
   const { locale } = useRouter();
+  const { t } = useTranslation();
 
   useEffect(() => {
     const element = ref.current;
@@ -82,53 +84,61 @@ export default function Header() {
             <Flex flexDir={["column", "row"]} alignItems="center">
               <Heading
                 className="gradient-text"
-                textAlign="center"
+                lineHeight={1}
                 position="relative"
                 px={[2, 8]}
                 fontSize={["5xl", "6xl", "8xl", "8rem"]}
               >
                 Dunja
-                <Box
-                  ref={ref}
-                  className="draw"
-                  position="absolute"
-                  transform="rotate(7deg)"
-                  top={["14px", "17px", "24px", "34px"]}
-                  right={["21px", "49px", "60px", "72px"]}
-                  w={["12px", "14px", "21px", "26px"]}
-                  backgroundColor="white"
-                >
-                  <Heart width="100%" />
-                </Box>
               </Heading>
               <Heading
                 lineHeight={1}
                 className="gradient-text"
-                textAlign="center"
                 fontSize={["3xl", "5xl", "6xl", "6rem"]}
+                position="relative"
               >
                 &
+                {/* <Box
+                  ref={ref}
+                  className="draw"
+                  position="absolute"
+                  top={-5}
+                  right={-2}
+                  w="110px"
+                >
+                  <Heart width="100%" />
+                </Box> */}
               </Heading>
               <Heading
+                lineHeight={1}
                 className="gradient-text"
-                textAlign="center"
                 px={[2, 8]}
                 fontSize={["5xl", "6xl", "8xl", "8rem"]}
               >
                 Gustaf
               </Heading>
             </Flex>
-            <Flex
-              mt={[4, 4, 0]}
-              h={["30px", "50px"]}
-              alignItems="center"
-              fontSize={["sm", "lg", "xl"]}
-            >
-              <Text px={4}>Sat</Text>
-              <Divider orientation="vertical" />
-              <Text px={4}>9 July</Text>
-              <Divider orientation="vertical" />
-              <Text px={4}>2022</Text>
+            <Flex flexDir={["column", "row"]} mt={[3, 0]} alignItems="center">
+              <Text
+                fontSize={["sm", "sm", "lg", "xl"]}
+                mr={[0, 0, 4]}
+                mb={[1, 0]}
+              >
+                {t("wereGettingMarried")}
+              </Text>
+              <Flex
+                h={["30px", "50px"]}
+                alignItems="center"
+                letterSpacing="widest"
+                textTransform="uppercase"
+                fontSize={["sm", "sm", "lg", "xl"]}
+              >
+                <Text px={[3, 5]}>{t("saturday")}</Text>
+                <Divider orientation="vertical" />
+                <Text px={[3, 5]}>9 {t("july")}</Text>
+                <Divider orientation="vertical" />
+                <Text px={[3, 5]}>2022</Text>
+              </Flex>
             </Flex>
           </Box>
           <Box

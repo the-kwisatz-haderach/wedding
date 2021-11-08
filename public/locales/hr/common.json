@@ -4,6 +4,9 @@
   "venue": "plats",
   "weddingDay": "bröllopsdag",
   "photos": "foton",
-  "rsvp": "rsvp",
-  "phrases": "fraser"
+  "rsvp": "RSVP",
+  "phrases": "fraser",
+  "wereGettingMarried": "Vi gifter oss!",
+  "saturday": "Lör",
+  "july": "juli"
 }
