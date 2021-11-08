@@ -18,7 +18,7 @@ const phrases = [
 export default function Phrases() {
   return (
     <Box>
-      <Text textAlign={["center", "center", "left"]} mb={7}>
+      <Text textAlign="center" mb={7}>
         Just some useful phrases...
       </Text>
       <Box

@@ -6,6 +6,7 @@ import Sections from "../components/Sections";
 import { createSections } from "../lib/sections";
 import { useTranslation } from "react-i18next";
 import Header from "../components/Header/Header";
+import Footer from "../components/Footer";
 
 export default function Home() {
   const { t } = useTranslation("common");
@@ -13,42 +14,14 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>Dunja & Gustaf</title>
+        <title>Dunja & Gustaf | Wedding Site</title>
         <meta name="description" content="Our Wedding Site" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Box>
         <Header />
         <Sections sections={sections} />
-        <footer
-          style={{
-            padding: "2rem",
-            textAlign: "right",
-            color: "white",
-            backgroundColor: "#f57373",
-          }}
-        >
-          <div>
-            Icons made by{" "}
-            <a
-              href="https://www.freepik.com"
-              title="Freepik"
-              target="_blank"
-              rel="noreferrer"
-            >
-              Freepik
-            </a>{" "}
-            from{" "}
-            <a
-              href="https://www.flaticon.com/"
-              title="Flaticon"
-              target="_blank"
-              rel="noreferrer"
-            >
-              www.flaticon.com
-            </a>
-          </div>
-        </footer>
+        <Footer />
       </Box>
     </>
   );

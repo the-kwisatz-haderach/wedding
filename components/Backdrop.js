@@ -16,7 +16,7 @@ export const Backdrop = ({ quantity = 20 }) => {
         .fill(0)
         .map((_, index) => (
           <Falling key={index} delay={600 * index}>
-            <>♥</>
+            ♥
           </Falling>
         ))}
     </div>

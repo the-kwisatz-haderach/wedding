@@ -122,3 +122,21 @@ textarea {
 .alternate:nth-child(even) {
   background-color: rgb(120 120 120 / 4%) !important;
 }
+
+.lang-link {
+  display: flex;
+  align-items: center;
+  line-height: 0;
+  padding: 8px 16px;
+  border-radius: 25px;
+  transition: transform 0.2s ease-in-out, color 0.1s ease-in-out;
+  &:hover {
+    transform: scale(1.2);
+    font-weight: bold;
+  }
+}
+
+.selected {
+  pointer-events: none;
+  font-weight: bold;
+}

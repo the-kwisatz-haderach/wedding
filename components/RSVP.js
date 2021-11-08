@@ -115,7 +115,7 @@ export default function RSVP() {
       boxShadow="5px 20px 40px -15px #00000026"
       pt={10}
       pb={14}
-      px={10}
+      px={[6, 10]}
     >
       {hideForm ? (
         <Flex justifyContent="center" alignItems="center" flexDir="column">
