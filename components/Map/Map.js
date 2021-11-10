@@ -1,6 +1,7 @@
 import React from "react";
 import GoogleMapReact from "google-map-react";
 import { Pin } from "./Pin";
+import { Box, Container, Flex } from "@chakra-ui/layout";
 
 const defaultProps = {
   center: {
@@ -41,31 +42,33 @@ const locations = [
 
 export default function Map() {
   return (
-    // Important! Always set the container height explicitly
-    <div
-      style={{
-        height: "60vh",
-        width: "100%",
-        borderTop: "1px solid rgba(0,0,0,0.2)",
-        borderBottom: "1px solid rgba(0,0,0,0.2)",
-      }}
-    >
-      <GoogleMapReact
-        bootstrapURLKeys={{ key: process.env.NEXT_PUBLIC_GOOGLE_MAPS_KEY }}
-        defaultCenter={defaultProps.center}
-        defaultZoom={defaultProps.zoom}
-        options={options}
+    <Box>
+      <Container maxW="container.lg">Hello</Container>
+      <div
+        style={{
+          height: "60vh",
+          width: "100%",
+          borderTop: "1px solid rgba(0,0,0,0.2)",
+          borderBottom: "1px solid rgba(0,0,0,0.2)",
+        }}
       >
-        {locations.map((location) => (
-          <Pin
-            key={location.title}
-            lat={location.lat}
-            lng={location.lng}
-            text={location.content}
-            title={location.title}
-          />
-        ))}
-      </GoogleMapReact>
-    </div>
+        <GoogleMapReact
+          bootstrapURLKeys={{ key: process.env.NEXT_PUBLIC_GOOGLE_MAPS_KEY }}
+          defaultCenter={defaultProps.center}
+          defaultZoom={defaultProps.zoom}
+          options={options}
+        >
+          {locations.map((location) => (
+            <Pin
+              key={location.title}
+              lat={location.lat}
+              lng={location.lng}
+              text={location.content}
+              title={location.title}
+            />
+          ))}
+        </GoogleMapReact>
+      </div>
+    </Box>
   );
 }

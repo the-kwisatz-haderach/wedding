@@ -141,3 +141,42 @@ textarea {
   pointer-events: none;
   font-weight: bold;
 }
+
+.gold-border {
+  border: 1px solid #cfa344;
+  width: 100%;
+  height: 100%;
+  box-shadow: 15px 35px 30px -25px #00000052;
+  background-image: linear-gradient(149deg, #e7ba58, #ffe8b4, #f1c461);
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+
+.drop-in {
+  transform: scale(100) translateY(100vh) rotate(120deg);
+  animation: dropIn 1s ease-in-out forwards;
+}
+
+@keyframes dropIn {
+  from {
+    transform: scale(10) translateY(90vh) rotate(120deg);
+  }
+  to {
+    transform: scale(1) translateY(0vh) rotate(0deg);
+  }
+}
+
+.move-up {
+  transform: translateY(30px);
+  animation: moveUp 0.4s 0.5s ease-in-out forwards;
+}
+
+@keyframes moveUp {
+  from {
+    transform: translateY(30px);
+  }
+  to {
+    transform: translateY(0px);
+  }
+}

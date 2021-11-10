@@ -1,7 +1,7 @@
 import { extendTheme, ChakraProvider } from "@chakra-ui/react";
 import { appWithTranslation } from "next-i18next";
-import "@fontsource/alex-brush/400.css";
-import "@fontsource/open-sans/400.css";
+import "@fontsource/alex-brush";
+import "@fontsource/open-sans";
 import "../styles/globals.scss";
 
 const theme = extendTheme({
