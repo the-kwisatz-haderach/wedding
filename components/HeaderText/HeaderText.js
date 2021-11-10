@@ -87,7 +87,7 @@ export default function HeaderText() {
             mb={[1, 0]}
             style={{
               transformOrigin: "right",
-              animationDelay: "0.5s",
+              animationDelay: "0.3s",
             }}
             className="drop-in"
           >
