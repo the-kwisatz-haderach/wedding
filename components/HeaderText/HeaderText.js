@@ -84,7 +84,7 @@ export default function HeaderText() {
           <Text
             fontSize={["sm", "sm", "lg", "xl"]}
             mr={[0, 0, 4]}
-            mb={[1, 0]}
+            mb={[3, 0]}
             style={{
               transformOrigin: "right",
               animationDelay: "0.3s",

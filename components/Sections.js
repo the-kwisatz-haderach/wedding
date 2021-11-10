@@ -38,7 +38,7 @@ export default function Sections({ sections }) {
                 layout="responsive"
               />
             </Box>
-            <Heading marginLeft={10} size="3xl" textTransform="capitalize">
+            <Heading marginLeft={[6, 10]} size="3xl" textTransform="capitalize">
               {label}
             </Heading>
           </Container>
