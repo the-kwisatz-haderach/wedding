@@ -31,6 +31,9 @@ export default async function rsvp(req, res) {
           photos,
           hotel_arrangement,
           message,
+          number_of_children,
+          partner_name,
+          allergies,
         } = existingRow;
         return res.status(200).json({
           id,
@@ -42,6 +45,9 @@ export default async function rsvp(req, res) {
           photos,
           hotel_arrangement,
           message,
+          number_of_children,
+          partner_name,
+          allergies,
         });
       } else {
         res.status(404).end();

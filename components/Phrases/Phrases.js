@@ -61,7 +61,7 @@ export default function Phrases() {
         </Flex>
         <Flex flexDir="column">
           {phrases.map((phrase) => (
-            <>
+            <React.Fragment key={phrase.phrase}>
               <Divider />
               <Flex
                 px={[4, 10]}
@@ -73,7 +73,7 @@ export default function Phrases() {
                 <Text>{phrase.phrase}</Text>
                 <Text>{phrase.translation}</Text>
               </Flex>
-            </>
+            </React.Fragment>
           ))}
         </Flex>
       </Box>

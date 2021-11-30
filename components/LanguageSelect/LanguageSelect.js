@@ -14,7 +14,7 @@ export default function LanguageSelect() {
       justifyContent="center"
       position="relative"
       color="white"
-      backgroundColor="rgb(245, 115, 115)"
+      backgroundColor="rgba(245, 115, 115, 0.85)"
       letterSpacing="wider"
       textTransform="uppercase"
     >
