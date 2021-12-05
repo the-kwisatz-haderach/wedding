@@ -1,4 +1,7 @@
 {
+  "rsvpCTA": "RSVP här",
+  "letUsKnow": "och meddela om du kommer eller ej.",
+  "differentDeviceMessage": "Om du tidigare svarat på en annan enhet, följ länken i e-postmeddelandet för att uppdatera ditt svar.",
   "thankYouForResponding": "Tack för ditt svar!",
   "updateResponse": "Uppdatera svar",
   "positiveAttendanceLabel": "Ja, vi kommer!",

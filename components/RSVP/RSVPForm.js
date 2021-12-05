@@ -1,7 +1,7 @@
 import React from "react";
 import { SimpleGrid, Box, Flex, Text } from "@chakra-ui/layout";
 import { Collapse } from "@chakra-ui/transition";
-import { CheckIcon } from "@chakra-ui/icons";
+import { CheckIcon, ChevronLeftIcon, CloseIcon } from "@chakra-ui/icons";
 import { Spinner } from "@chakra-ui/react";
 import {
   NumberInput,
@@ -25,12 +25,12 @@ import { Controller } from "react-hook-form";
 
 export default function RSVPForm({
   onSubmit,
+  onCancel,
   register,
   isLoading,
   willAttend,
   setWillAttend,
   hasKids,
-  numberOfChildren,
   name,
   control,
 }) {
@@ -166,7 +166,7 @@ export default function RSVPForm({
               )}
             />
           </Collapse>
-          <FormControl mb={5} id="allergies">
+          <FormControl my={5} id="allergies">
             <FormLabel fontSize="sm" fontWeight="bold">
               {t("allergiesLabel")}
             </FormLabel>
@@ -179,16 +179,19 @@ export default function RSVPForm({
             <Textarea {...register("comments")} size="lg" />
           </FormControl>
         </Collapse>
-        <Flex justifyContent="flex-end">
-          <Button disabled={isLoading} type="submit" colorScheme="red">
-            {isLoading ? (
-              <>
-                <Spinner color="white" mr={2} />
-                Loading...
-              </>
-            ) : (
-              t("submitResponse")
-            )}
+        <Flex justifyContent="space-between">
+          <Button onClick={onCancel}>
+            <ChevronLeftIcon fontSize="2xl" />
+            Bakåt
+          </Button>
+          <Button
+            disabled={isLoading}
+            loadingText="Loading..."
+            isLoading={isLoading}
+            type="submit"
+            colorScheme="red"
+          >
+            {t("submitResponse")}
           </Button>
         </Flex>
       </SimpleGrid>
