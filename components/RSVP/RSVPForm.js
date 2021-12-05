@@ -87,8 +87,8 @@ export default function RSVPForm({
             placeholder="email@gmail.com"
           />
         </FormControl>
-        <Flex>
-          <FormControl id="name">
+        <Flex flexDir={["column", "row"]}>
+          <FormControl id="name" mb={[4, 0]}>
             <FormLabel fontWeight="bold" fontSize="sm">
               {t("nameLabel")}
             </FormLabel>
@@ -100,7 +100,7 @@ export default function RSVPForm({
               placeholder="Name"
             />
           </FormControl>
-          <Flex my={2} mx={3} alignItems="flex-end">
+          <Flex display={["none", "flex"]} mx={4} my={2} alignItems="flex-end">
             <Text fontSize="2xl">&</Text>
           </Flex>
           <FormControl id="partner_name">
@@ -117,14 +117,14 @@ export default function RSVPForm({
           </FormControl>
         </Flex>
         <Collapse in={willAttend} animateOpacity>
-          <Flex justifyContent="space-between" mt={1} mb={5}>
-            <Checkbox {...register("wantsHotelArrangements")} size="lg">
+          <Flex mt={1} mb={5} flexDir="column">
+            <Checkbox size="lg" {...register("wantsHotelArrangements")} mb={3}>
               {t("hotelArrangementLabel")} 🏨
             </Checkbox>
-            <Checkbox {...register("photos")} size="lg">
+            <Checkbox size="lg" {...register("photos")} mb={3}>
               {t("photosLabel")} 📷
             </Checkbox>
-            <Checkbox {...register("hasKids")} size="lg">
+            <Checkbox size="lg" {...register("hasKids")} mb={3}>
               {t("childrenLabel")} 🧒
             </Checkbox>
           </Flex>
@@ -155,6 +155,7 @@ export default function RSVPForm({
                       </NumberInputStepper>
                     </NumberInput>
                     <Slider
+                      my={2}
                       value={value}
                       onChange={onChange}
                       flex="1"
