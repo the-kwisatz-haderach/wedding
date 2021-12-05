@@ -10,5 +10,8 @@
   "wereGettingMarried": "Vi gifter oss!",
   "saturday": "Lör",
   "july": "juli",
-  "phrasesIntro": "En samling användbara fraser."
+  "phrasesIntro": "En samling användbara fraser.",
+  "missingResponseIdTitle": "Id saknas",
+  "missingResponseIdDescription": "Försök igen eller svara på nytt",
+  "or": "eller"
 }

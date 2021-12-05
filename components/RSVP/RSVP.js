@@ -1,16 +1,14 @@
 import React, { useState } from "react";
 import { Box, Divider, Flex, Text } from "@chakra-ui/layout";
 import { useToast } from "@chakra-ui/toast";
-import { Button, Input } from "@chakra-ui/react";
+import { Button } from "@chakra-ui/react";
 import { nanoid } from "nanoid";
 import { useTranslation } from "react-i18next";
 import RSVPForm from "./RSVPForm";
 import { useForm } from "react-hook-form";
 import Indicator from "../Indicator/Indicator";
 
-const RSVP_ID_KEY = "rsvp-id";
-
-// RSVP deadline
+const RSVP_ID_KEY = "rsvp_id";
 
 export default function RSVP() {
   const { t } = useTranslation(["rsvp", "common"]);
@@ -29,12 +27,12 @@ export default function RSVP() {
     },
   });
   const toast = useToast();
-  const [responseId, setResponseId] = useState("");
-  const [hasResponded, setHasResponded] = useState(
-    Boolean(
-      typeof window !== "undefined" && window.localStorage.getItem(RSVP_ID_KEY)
-    )
-  );
+  const rsvpId =
+    typeof window !== "undefined" &&
+    (new URLSearchParams(window.location.search.slice(1)).get(RSVP_ID_KEY) ||
+      window.localStorage.getItem(RSVP_ID_KEY));
+
+  const [hasResponded, setHasResponded] = useState(Boolean(rsvpId));
   const [name, willAttend, hasKids] = watch(["name", "willAttend", "hasKids"]);
 
   const [isLoadingFormData, setIsLoadingFormData] = useState(false);
@@ -43,7 +41,7 @@ export default function RSVP() {
   const onSubmit = handleSubmit(async (data, e) => {
     setIsLoadingFormData(true);
     e.preventDefault();
-    const id = window.localStorage.getItem(RSVP_ID_KEY) || nanoid();
+    const id = rsvpId || nanoid();
     try {
       const response = await fetch("/api/rsvp", {
         method: "POST",
@@ -85,14 +83,12 @@ export default function RSVP() {
 
   const onNewRsvp = () => {
     setShowForm(true);
-    setResponseId("");
   };
 
-  const onGetRowData = async (responseId) => {
+  const onGetRowData = async () => {
     try {
-      const id = responseId || window.localStorage.getItem(RSVP_ID_KEY);
       setIsLoadingFormData(true);
-      const res = await fetch(`/api/rsvp/${id}`);
+      const res = await fetch(`/api/rsvp/${rsvpId}`);
       if (res.ok) {
         const data = await res.json();
         reset({
@@ -107,7 +103,6 @@ export default function RSVP() {
           name: data.name,
           photos: data.photos === "TRUE",
         });
-        setResponseId("");
         setShowForm(true);
       } else {
         toast({
@@ -140,8 +135,13 @@ export default function RSVP() {
             <>
               <Indicator isLoading={isLoadingFormData} />
               <Text mb={5}>{t("thankYouForResponding")}</Text>
-              <Button disabled={isLoadingFormData} onClick={onGetRowData}>
-                {isLoadingFormData ? "Loading..." : t("updateResponse")}
+              <Button
+                isLoading={isLoadingFormData}
+                loadingText={t("loading", { ns: "common" })}
+                disabled={isLoadingFormData}
+                onClick={onGetRowData}
+              >
+                {t("updateResponse")}
               </Button>
             </>
           ) : (
@@ -159,7 +159,7 @@ export default function RSVP() {
               </Flex>
               <Flex alignItems="center" my={6}>
                 <Divider mr={4} />
-                or
+                {t("or", { ns: "common" })}
                 <Divider ml={4} />
               </Flex>
               <Box>

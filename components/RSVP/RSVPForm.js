@@ -37,6 +37,15 @@ export default function RSVPForm({
   const { t } = useTranslation("rsvp");
   return (
     <form onSubmit={onSubmit}>
+      <input
+        {...register("hp-name")}
+        style={{
+          opacity: "0",
+          position: "absolute",
+          top: 0,
+          left: 0,
+        }}
+      />
       <SimpleGrid spacing="6" w="100%">
         <Flex flexDir="column">
           <FormLabel fontWeight="bold" fontSize="sm">
