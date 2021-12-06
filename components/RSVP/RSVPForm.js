@@ -22,6 +22,7 @@ import {
 } from "@chakra-ui/react";
 import { useTranslation } from "react-i18next";
 import { Controller } from "react-hook-form";
+import FormActions from "./FormActions";
 
 export default function RSVPForm({
   onSubmit,
@@ -189,21 +190,11 @@ export default function RSVPForm({
             <Textarea {...register("comments")} size="lg" />
           </FormControl>
         </Collapse>
-        <Flex justifyContent="space-between">
-          <Button onClick={onCancel}>
-            <ChevronLeftIcon fontSize="2xl" />
-            Bakåt
-          </Button>
-          <Button
-            disabled={isLoading}
-            loadingText="Loading..."
-            isLoading={isLoading}
-            type="submit"
-            colorScheme="red"
-          >
-            {t("submitResponse")}
-          </Button>
-        </Flex>
+        <FormActions
+          onCancel={onCancel}
+          isLoading={isLoading}
+          control={control}
+        />
       </SimpleGrid>
     </form>
   );

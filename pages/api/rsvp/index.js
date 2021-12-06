@@ -42,6 +42,10 @@ export default async function rsvp(req, res) {
         await sheet.addRow(body);
       }
 
+      console.log(req.rawHeaders);
+      console.log(req.headers);
+      console.log(req.headers["Accept-Language"]);
+
       if (body.email) {
         await sendEmail(body.email, {
           subject: "RSVP Confirmation | Dunja & Gustafs Wedding",
@@ -60,14 +64,14 @@ export default async function rsvp(req, res) {
             <li><b>Will join:</b> ${formatBoolean(body.status)}</li>
             ${
               body.status
-                ? `<li><b>Plus </b>1: ${body.partner_name || "None"}</li>
-              <li><b>Allergies:</b> ${body.allergies || "None"}</li>
+                ? `<li><b>Plus </b>1: ${body.partner_name || "-"}</li>
+              <li><b>Allergies:</b> ${body.allergies || "-"}</li>
               <li><b>Children:</b> ${body.number_of_children}</li>
               <li><b>Wedding photos:</b> ${formatBoolean(body.photos)}</li>
               <li><b>Help with hotel arrangement:</b> ${formatBoolean(
                 body.hotel_arrangement
               )}</li>
-              <li><b>Message:</b> ${body.message || "None"}</li>`
+              <li><b>Message:</b> ${body.message || "-"}</li>`
                 : ""
             }
           </ul>
