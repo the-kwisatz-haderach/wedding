@@ -1,38 +1,36 @@
-import { useState } from "react";
-import { Button } from "@chakra-ui/button";
 import Image from "next/image";
-import { Box, Stack, Text } from "@chakra-ui/layout";
+import { Box } from "@chakra-ui/layout";
 import pin from "../../images/pin.png";
 
-export const Pin = ({ title = "", text }) => {
-  const [showContent, setShowContent] = useState(false);
+const hoverStyle = {
+  cursor: "pointer",
+  transform: "scale(1.4) translateY(-7px)",
+};
+
+export const Pin = ({ isSelected, onSelect }) => {
   return (
     <Box
       width={55}
       height={55}
       position="relative"
       transform="translate(-50%, -100%)"
+      onClick={onSelect}
+      sx={{
+        "& *": {
+          overflow: "visible !important",
+        },
+        "& img": {
+          overflow: "visible",
+          transition: "transform 0.1s ease-in-out",
+          ...(isSelected && {
+            ...hoverStyle,
+            filter: "hue-rotate(170deg)",
+          }),
+        },
+        "& img:hover": hoverStyle,
+      }}
     >
-      <Image alt="Pin" src={pin} layout="fill" />
+      <Image alt="Pin" src={pin} layout="fill" overflow="visible" />
     </Box>
   );
 };
-
-{
-  /* <Box
-    backgroundColor="white"
-    py={3}
-    px={4}
-    w="max"
-    boxShadow="lg"
-    borderRadius="lg"
-    cursor="initial"
-  >
-    <Image src={pin} width={100} height={100} />
-    <Stack spacing={1}>
-      <Text fontSize="md">{title}</Text>
-      <Text>{text}</Text>
-      <Button variant="link">LOL</Button>
-    </Stack>
-  </Box> */
-}

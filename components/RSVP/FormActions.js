@@ -7,9 +7,7 @@ import { useFormState } from "react-hook-form";
 
 export default function FormActions({ onCancel, isLoading, control }) {
   const { t } = useTranslation("rsvp");
-  const { isValid, errors } = useFormState({ control });
-  console.log(isValid);
-  console.log(errors);
+  const { isValid } = useFormState({ control });
   return (
     <Flex justifyContent="space-between">
       <Button onClick={onCancel}>
