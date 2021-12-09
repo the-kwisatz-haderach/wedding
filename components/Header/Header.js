@@ -32,6 +32,7 @@ export default function Header() {
         px={2}
         minH="2xl"
         display="flex"
+        overflow="hidden"
         alignItems="center"
         justifyContent="center"
         flexDir="column"
