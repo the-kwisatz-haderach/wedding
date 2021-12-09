@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Box, Divider, Flex, Text } from "@chakra-ui/layout";
 import { useToast } from "@chakra-ui/toast";
 import { Button } from "@chakra-ui/react";
@@ -6,7 +6,7 @@ import { nanoid } from "nanoid";
 import { useTranslation } from "react-i18next";
 import RSVPForm from "./RSVPForm";
 import { useForm } from "react-hook-form";
-import Indicator from "../Indicator/Indicator";
+import Indicator from "../Indicator";
 
 const RSVP_ID_KEY = "rsvp_id";
 
@@ -27,16 +27,22 @@ export default function RSVP() {
     },
   });
   const toast = useToast();
-  const rsvpId =
-    typeof window !== "undefined" &&
-    (new URLSearchParams(window.location.search.slice(1)).get(RSVP_ID_KEY) ||
-      window.localStorage.getItem(RSVP_ID_KEY));
-
-  const [hasResponded, setHasResponded] = useState(Boolean(rsvpId));
+  const [rsvpId, setRsvpId] = useState("");
   const [name, willAttend, hasKids] = watch(["name", "willAttend", "hasKids"]);
 
   const [isLoadingFormData, setIsLoadingFormData] = useState(false);
   const [showForm, setShowForm] = useState(false);
+
+  useEffect(() => {
+    console.log("window", window);
+    setRsvpId(
+      typeof window !== "undefined" &&
+        (new URLSearchParams(window.location.search.slice(1)).get(
+          RSVP_ID_KEY
+        ) ||
+          window.localStorage.getItem(RSVP_ID_KEY))
+    );
+  }, []);
 
   const onSubmit = handleSubmit(async (data, e) => {
     setIsLoadingFormData(true);
@@ -62,7 +68,7 @@ export default function RSVP() {
 
       if (response.ok) {
         window.localStorage.setItem(RSVP_ID_KEY, id);
-        setHasResponded(true);
+        setRsvpId(id);
         setShowForm(false);
         toast({
           title: t("toastTitle"),
@@ -131,42 +137,44 @@ export default function RSVP() {
     >
       {!showForm ? (
         <Flex justifyContent="center" alignItems="center" flexDir="column">
-          {hasResponded ? (
-            <>
-              <Indicator isLoading={isLoadingFormData} />
-              <Text mb={5}>{t("thankYouForResponding")}</Text>
+          <Flex
+            flexDir="column"
+            hidden={!Boolean(rsvpId)}
+            justifyContent="center"
+            alignItems="center"
+          >
+            <Indicator />
+            <Text mb={5}>{t("thankYouForResponding")}</Text>
+            <Button
+              isLoading={isLoadingFormData}
+              loadingText={t("loading", { ns: "common" })}
+              disabled={isLoadingFormData}
+              onClick={onGetRowData}
+            >
+              {t("updateResponse")}
+            </Button>
+          </Flex>
+          <Flex hidden={Boolean(rsvpId)} flexDir="column">
+            <Flex alignItems="center" justifyContent="center">
               <Button
-                isLoading={isLoadingFormData}
-                loadingText={t("loading", { ns: "common" })}
+                variant="solid"
+                colorScheme="red"
                 disabled={isLoadingFormData}
-                onClick={onGetRowData}
+                onClick={onNewRsvp}
               >
-                {t("updateResponse")}
+                {t("rsvpCTA")}
               </Button>
-            </>
-          ) : (
-            <Flex flexDir="column">
-              <Flex alignItems="center" justifyContent="center">
-                <Button
-                  variant="solid"
-                  colorScheme="red"
-                  disabled={isLoadingFormData}
-                  onClick={onNewRsvp}
-                >
-                  {t("rsvpCTA")}
-                </Button>
-                <Text ml={2}>{t("letUsKnow")}</Text>
-              </Flex>
-              <Flex alignItems="center" my={6}>
-                <Divider mr={4} />
-                {t("or", { ns: "common" })}
-                <Divider ml={4} />
-              </Flex>
-              <Box>
-                <Text fontSize="sm">{t("differentDeviceMessage")}</Text>
-              </Box>
+              <Text ml={2}>{t("letUsKnow")}</Text>
             </Flex>
-          )}
+            <Flex alignItems="center" my={6}>
+              <Divider mr={4} />
+              {t("or", { ns: "common" })}
+              <Divider ml={4} />
+            </Flex>
+            <Box>
+              <Text fontSize="sm">{t("differentDeviceMessage")}</Text>
+            </Box>
+          </Flex>
         </Flex>
       ) : (
         <RSVPForm

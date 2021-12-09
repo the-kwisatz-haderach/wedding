@@ -1,25 +1,19 @@
 import React from "react";
-import { Spinner } from "@chakra-ui/react";
 import { CheckIcon } from "@chakra-ui/icons";
-import { Box } from "@chakra-ui/layout";
+import { Flex } from "@chakra-ui/layout";
 
-export default function Indicator({ isLoading }) {
+export default function Indicator() {
   return (
-    <Box
-      display="flex"
+    <Flex
       justifyContent="center"
       alignItems="center"
-      h="60px"
-      w="60px"
+      h={16}
+      w={16}
       borderRadius="50%"
       backgroundColor="green.300"
       mb={5}
     >
-      {isLoading ? (
-        <Spinner color="white" />
-      ) : (
-        <CheckIcon color="white" fontSize="xl" />
-      )}
-    </Box>
+      <CheckIcon color="white" fontSize="xl" />
+    </Flex>
   );
 }
