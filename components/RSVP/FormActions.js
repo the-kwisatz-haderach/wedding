@@ -7,8 +7,9 @@ import { useFormState } from "react-hook-form";
 
 export default function FormActions({ onCancel, isLoading, control }) {
   const { t } = useTranslation("rsvp");
-  const { isDirty } = useFormState({ control });
-  console.log(isDirty);
+  const { isValid, errors } = useFormState({ control });
+  console.log(isValid);
+  console.log(errors);
   return (
     <Flex justifyContent="space-between">
       <Button onClick={onCancel}>
@@ -16,7 +17,7 @@ export default function FormActions({ onCancel, isLoading, control }) {
         Bakåt
       </Button>
       <Button
-        disabled={isLoading || isDirty}
+        disabled={isLoading || !isValid}
         loadingText="Loading..."
         isLoading={isLoading}
         type="submit"

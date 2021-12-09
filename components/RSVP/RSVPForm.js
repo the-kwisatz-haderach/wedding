@@ -1,8 +1,7 @@
 import React from "react";
 import { SimpleGrid, Box, Flex, Text } from "@chakra-ui/layout";
 import { Collapse } from "@chakra-ui/transition";
-import { CheckIcon, ChevronLeftIcon, CloseIcon } from "@chakra-ui/icons";
-import { Spinner } from "@chakra-ui/react";
+import { CheckIcon } from "@chakra-ui/icons";
 import {
   NumberInput,
   NumberInputField,
@@ -79,13 +78,24 @@ export default function RSVPForm({
           <FormLabel fontWeight="bold" fontSize="sm">
             {t("emailLabel")}
           </FormLabel>
-          <Input
-            {...register("email")}
-            isRequired
-            size="lg"
-            required
-            autoComplete="email"
-            placeholder="email@gmail.com"
+          <Controller
+            control={control}
+            name="email"
+            rules={{
+              required: true,
+            }}
+            render={({ field: { value, onChange, ref } }) => (
+              <Input
+                ref={ref}
+                value={value}
+                onChange={onChange}
+                size="lg"
+                isRequired
+                autoComplete="email"
+                type="email"
+                placeholder="email@gmail.com"
+              />
+            )}
           />
         </FormControl>
         <Flex flexDir={["column", "row"]}>
@@ -93,12 +103,23 @@ export default function RSVPForm({
             <FormLabel fontWeight="bold" fontSize="sm">
               {t("nameLabel")}
             </FormLabel>
-            <Input
-              {...register("name")}
-              isRequired
-              size="lg"
-              autoComplete="name"
-              placeholder="Name"
+            <Controller
+              control={control}
+              name="name"
+              rules={{
+                required: true,
+              }}
+              render={({ field: { value, onChange, ref } }) => (
+                <Input
+                  ref={ref}
+                  value={value}
+                  onChange={onChange}
+                  isRequired
+                  size="lg"
+                  autoComplete="name"
+                  placeholder="Name"
+                />
+              )}
             />
           </FormControl>
           <Flex display={["none", "flex"]} mx={4} my={2} alignItems="flex-end">
@@ -133,13 +154,14 @@ export default function RSVPForm({
             <Controller
               name="numberOfChildren"
               control={control}
-              render={({ field: { value, onChange } }) => (
+              render={({ field: { value, onChange, ref } }) => (
                 <FormControl id="numberOfChildren">
                   <FormLabel fontSize="sm" fontWeight="bold">
                     {t("numberOfChildrenLabel")}
                   </FormLabel>
                   <Box display="flex" w="100%">
                     <NumberInput
+                      ref={ref}
                       value={value}
                       onChange={(_, value) => onChange(value)}
                       size="lg"

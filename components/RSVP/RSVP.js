@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { useRouter } from "next/router";
 import { Box, Divider, Flex, Text } from "@chakra-ui/layout";
 import { useToast } from "@chakra-ui/toast";
 import { Button } from "@chakra-ui/react";
@@ -11,6 +12,7 @@ import Indicator from "../Indicator";
 const RSVP_ID_KEY = "rsvp_id";
 
 export default function RSVP() {
+  const { locale } = useRouter();
   const { t } = useTranslation(["rsvp", "common"]);
   const { register, handleSubmit, watch, reset, setValue, control } = useForm({
     defaultValues: {
@@ -25,6 +27,7 @@ export default function RSVP() {
       email: "",
       comments: "",
     },
+    mode: "onChange",
   });
   const toast = useToast();
   const [rsvpId, setRsvpId] = useState("");
@@ -48,6 +51,7 @@ export default function RSVP() {
         method: "POST",
         body: JSON.stringify({
           id,
+          locale,
           name: data.name,
           email: data.email,
           allergies: data.allergies,
