@@ -11,7 +11,7 @@
   "saturday": "Lör",
   "july": "juli",
   "phrasesIntro": "En samling användbara fraser.",
-  "missingResponseIdTitle": "Id saknas",
-  "missingResponseIdDescription": "Försök igen eller svara på nytt",
+  "missingResponseIdTitle": "Kunde inte hämta gammalt svar",
+  "missingResponseIdDescription": "Skicka in ditt svar på nytt med samma e-postadress",
   "or": "eller"
 }

@@ -29,18 +29,13 @@ export default function RSVP() {
   const toast = useToast();
   const [rsvpId, setRsvpId] = useState("");
   const [name, willAttend, hasKids] = watch(["name", "willAttend", "hasKids"]);
-
   const [isLoadingFormData, setIsLoadingFormData] = useState(false);
   const [showForm, setShowForm] = useState(false);
 
   useEffect(() => {
-    console.log("window", window);
     setRsvpId(
-      typeof window !== "undefined" &&
-        (new URLSearchParams(window.location.search.slice(1)).get(
-          RSVP_ID_KEY
-        ) ||
-          window.localStorage.getItem(RSVP_ID_KEY))
+      new URLSearchParams(window.location.search.slice(1)).get(RSVP_ID_KEY) ||
+        window.localStorage.getItem(RSVP_ID_KEY)
     );
   }, []);
 
@@ -112,14 +107,15 @@ export default function RSVP() {
         setShowForm(true);
       } else {
         toast({
-          title: t("missingResponseIdTitle"),
-          description: t("missingResponseIdDescription"),
+          title: t("missingResponseIdTitle", { ns: "common" }),
+          description: t("missingResponseIdDescription", { ns: "common" }),
           status: "warning",
           position: "top",
           variant: "subtle",
           duration: 4000,
           isClosable: true,
         });
+        setRsvpId("");
       }
     } finally {
       setIsLoadingFormData(false);
