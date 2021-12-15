@@ -1,7 +1,11 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import GoogleMapReact from "google-map-react";
 import { Pin } from "./Pin";
-import { Box, Container, Flex, Heading, Text } from "@chakra-ui/layout";
+import { Box, Container } from "@chakra-ui/layout";
+import Carousel from "../Carousel/Carousel";
+import maricaGaj from "../../images/marica-gaj.jpeg";
+import church from "../../images/church.jpeg";
+import sirokiBrijeg from "../../images/siroki-brijeg.jpeg";
 
 const defaultProps = {
   center: [43.3662828, 17.51],
@@ -21,74 +25,58 @@ const locations = [
     lat: 43.3394754,
     lng: 17.43006,
     title: "The Party",
-    description: "lorem ipsum",
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+    image: maricaGaj,
   },
   {
     lat: 43.387034744817086,
     lng: 17.59122205063004,
     title: "The Parents",
-    description: "lorem ipsum",
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+    image: sirokiBrijeg,
   },
   {
     lat: 43.37495449452526,
     lng: 17.588585935105154,
     title: "The Church",
-    description: "lorem ipsum",
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+    image: church,
   },
 ];
-
-const LocationCard = ({ title, description, isSelected, onSelect }) => {
-  return (
-    <Box
-      onClick={onSelect}
-      p={8}
-      flex={1}
-      boxShadow={isSelected ? "0px 12px 30px -5px #00000026" : undefined}
-      borderColor="gray.200"
-      transition="box-shadow 0.3s ease-in-out"
-      borderRadius={10}
-      borderWidth={1}
-      borderStyle="solid"
-      cursor="pointer"
-      sx={{
-        "&:not(:last-child)": {
-          marginRight: "1rem",
-        },
-      }}
-    >
-      <Heading>{title}</Heading>
-      <Text>{description}</Text>
-    </Box>
-  );
-};
 
 export default function Map() {
   const [selectedLocation, setSelectedLocation] = useState(0);
   const [mapCenter, setMapCenter] = useState(defaultProps.center);
-  const onSelectLocation = (locationIndex) => {
-    setSelectedLocation(locationIndex);
-    setMapCenter([locations[locationIndex].lat, locations[locationIndex].lng]);
+
+  const goToPrev = () => {
+    setSelectedLocation((current) =>
+      current === 0 ? locations.length - 1 : current - 1
+    );
   };
+
+  const goToNext = () => {
+    setSelectedLocation((current) => (current + 1) % locations.length);
+  };
+
+  useEffect(() => {
+    setMapCenter([
+      locations[selectedLocation].lat,
+      locations[selectedLocation].lng,
+    ]);
+  }, [selectedLocation]);
+
   return (
     <Box>
-      <Container
-        maxW="container.lg"
-        overflowX="auto"
-        pt={4}
-        pb={10}
-        className="hide-scrollbar"
-      >
-        <Flex justifyContent="space-between">
-          {locations.map(({ title, description }, locationIndex) => (
-            <LocationCard
-              key={title}
-              title={title}
-              description={description}
-              onSelect={() => onSelectLocation(locationIndex)}
-              isSelected={selectedLocation === locationIndex}
-            />
-          ))}
-        </Flex>
+      <Container maxW="container.lg" pt={4} pb={16}>
+        <Carousel
+          onNext={goToNext}
+          onPrev={goToPrev}
+          items={locations}
+          activeIndex={selectedLocation}
+        />
       </Container>
       <div
         style={{
@@ -111,7 +99,7 @@ export default function Map() {
               lng={location.lng}
               isSelected={selectedLocation === locationIndex}
               onSelect={() => {
-                onSelectLocation(locationIndex);
+                setSelectedLocation(locationIndex);
               }}
             />
           ))}
