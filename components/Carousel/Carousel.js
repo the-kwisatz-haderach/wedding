@@ -1,64 +1,75 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import Image from "next/image";
 import { Box, Flex, Heading, Text } from "@chakra-ui/layout";
-import { ScaleFade, IconButton } from "@chakra-ui/react";
-import { ArrowRightIcon } from "@chakra-ui/icons";
+import { Button } from "@chakra-ui/react";
+import { ExternalLinkIcon, ArrowRightIcon } from "@chakra-ui/icons";
 
 export default function Carousel({ items = [], activeIndex, onNext }) {
+  const ref = useRef(null);
+
+  useEffect(() => {
+    if (ref.current) {
+      ref.current.children[activeIndex].scrollIntoView({
+        behavior: "smooth",
+      });
+    }
+  }, [activeIndex]);
+
   return (
-    <Flex width="100%" alignItems="center">
-      <Flex flex={1}>
-        <Flex flexWrap="nowrap" flex={1} position="relative" height={200}>
-          {items.map(({ title, description, image }, index) => (
-            <ScaleFade
-              key={index}
-              initialScale={0}
-              unmountOnExit
-              transition={{
-                enter: {
-                  duration: 0.6,
-                },
-                exit: {
-                  duration: 0.2,
-                },
-              }}
-              in={index === activeIndex}
-              style={{
-                zIndex: 10,
-                position: "absolute",
-                inset: 0,
-                flexShrink: 0,
-                width: "100%",
-              }}
-            >
-              <Flex position="relative" flexDir={["column", "column", "row"]}>
-                <Box
-                  borderRadius={10}
-                  width="100%"
-                  boxShadow="0px 12px 30px -5px rgba(0,0,0,0.7)"
-                  position="relative"
-                >
-                  <Image src={image} alt="title" layout="fill" />
-                </Box>
-                <Box ml={16} mt={4}>
-                  <Flex alignItems="center">
-                    <Heading style={{ marginBottom: 8 }}>{title}</Heading>
-                  </Flex>
-                  <Box>
-                    <Text>{description}</Text>
-                  </Box>
-                </Box>
+    <Box display="flex" flexDir="column">
+      <Flex
+        ref={ref}
+        flexWrap="nowrap"
+        width="100%"
+        position="relative"
+        pointerEvents="none"
+        overflowX="scroll"
+        className="hide-scrollbar"
+        style={{
+          scrollbarWidth: 0,
+          scrollSnapType: "x mandatory",
+        }}
+      >
+        {items.map(({ title, description, image }, index) => (
+          <Flex
+            key={index}
+            flexShrink={0}
+            mx={10}
+            position="relative"
+            width="100%"
+            alignItems="center"
+            flexDir={["column", "column", "row"]}
+            style={{
+              scrollSnapAlign: "start",
+            }}
+          >
+            <Box borderRadius={10} position="relative" width="100%">
+              <Image src={image} alt="title" layout="responsive" />
+            </Box>
+            <Box ml={[undefined, undefined, 10]} mt={[5, 5, 0]}>
+              <Flex alignItems="center">
+                <Heading style={{ marginBottom: 8 }}>{title}</Heading>
               </Flex>
-            </ScaleFade>
-          ))}
-        </Flex>
+              <Box>
+                <Text>{description}</Text>
+              </Box>
+            </Box>
+          </Flex>
+        ))}
       </Flex>
-      <IconButton
-        ml={8}
-        colorScheme="red"
-        onClick={onNext}
-        icon={<ArrowRightIcon />}
-      />
-    </Flex>
+      <Flex mb={8} width="100%" justifyContent="space-between">
+        <Button
+          as="a"
+          colorScheme="teal"
+          href={items[activeIndex].link}
+          target="_blank"
+        >
+          Google Maps <ExternalLinkIcon ml={2} />
+        </Button>
+        <Button colorScheme="red" onClick={onNext}>
+          Next <ArrowRightIcon ml={2} fontSize="xs" />
+        </Button>
+      </Flex>
+    </Box>
   );
 }

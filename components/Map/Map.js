@@ -28,6 +28,7 @@ const locations = [
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
     image: maricaGaj,
+    link: "https://goo.gl/maps/ZvaiiD4hyDD78sfq6",
   },
   {
     lat: 43.387034744817086,
@@ -36,6 +37,7 @@ const locations = [
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
     image: sirokiBrijeg,
+    link: "https://goo.gl/maps/ZvaiiD4hyDD78sfq6",
   },
   {
     lat: 43.37495449452526,
@@ -44,6 +46,7 @@ const locations = [
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
     image: church,
+    link: "https://google.se",
   },
 ];
 
@@ -69,8 +72,8 @@ export default function Map() {
   }, [selectedLocation]);
 
   return (
-    <Box>
-      <Container maxW="container.lg" pt={4} pb={16}>
+    <Box mb="-6rem">
+      <Container maxWidth="container.xl">
         <Carousel
           onNext={goToNext}
           onPrev={goToPrev}
