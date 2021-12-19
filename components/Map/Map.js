@@ -76,7 +76,7 @@ export default function Map() {
       <Container maxWidth="container.xl">
         <Carousel
           onNext={goToNext}
-          onPrev={goToPrev}
+          onPrevious={goToPrev}
           items={locations}
           activeIndex={selectedLocation}
         />

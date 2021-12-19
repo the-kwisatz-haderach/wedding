@@ -1,10 +1,19 @@
 import React, { useEffect, useRef } from "react";
 import Image from "next/image";
 import { Box, Flex, Heading, Text } from "@chakra-ui/layout";
-import { Button } from "@chakra-ui/react";
-import { ExternalLinkIcon, ArrowRightIcon } from "@chakra-ui/icons";
+import { Button, Link } from "@chakra-ui/react";
+import {
+  ExternalLinkIcon,
+  ArrowRightIcon,
+  ArrowLeftIcon,
+} from "@chakra-ui/icons";
 
-export default function Carousel({ items = [], activeIndex, onNext }) {
+export default function Carousel({
+  items = [],
+  activeIndex,
+  onNext,
+  onPrevious,
+}) {
   const ref = useRef(null);
 
   useEffect(() => {
@@ -30,7 +39,7 @@ export default function Carousel({ items = [], activeIndex, onNext }) {
           scrollSnapType: "x mandatory",
         }}
       >
-        {items.map(({ title, description, image }, index) => (
+        {items.map(({ title, description, image, link }, index) => (
           <Flex
             key={index}
             flexShrink={0}
@@ -53,20 +62,20 @@ export default function Carousel({ items = [], activeIndex, onNext }) {
               <Box>
                 <Text>{description}</Text>
               </Box>
+              <Box mt={2}>
+                <Link isExternal color="teal" href={link}>
+                  Show on Google Maps <ExternalLinkIcon mb={1} ml={1} />
+                </Link>
+              </Box>
             </Box>
           </Flex>
         ))}
       </Flex>
-      <Flex mb={8} width="100%" justifyContent="space-between">
-        <Button
-          as="a"
-          colorScheme="teal"
-          href={items[activeIndex].link}
-          target="_blank"
-        >
-          Google Maps <ExternalLinkIcon ml={2} />
+      <Flex my={8} width="100%" justifyContent="space-between">
+        <Button colorScheme="teal" onClick={onPrevious}>
+          <ArrowLeftIcon mr={2} fontSize="xs" /> Previous
         </Button>
-        <Button colorScheme="red" onClick={onNext}>
+        <Button colorScheme="teal" onClick={onNext}>
           Next <ArrowRightIcon ml={2} fontSize="xs" />
         </Button>
       </Flex>
