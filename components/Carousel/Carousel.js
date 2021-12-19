@@ -20,6 +20,7 @@ export default function Carousel({
     if (ref.current) {
       ref.current.children[activeIndex].scrollIntoView({
         behavior: "smooth",
+        block: "nearest",
       });
     }
   }, [activeIndex]);
@@ -63,8 +64,9 @@ export default function Carousel({
                 <Text>{description}</Text>
               </Box>
               <Box mt={2}>
-                <Link isExternal color="teal" href={link}>
-                  Show on Google Maps <ExternalLinkIcon mb={1} ml={1} />
+                <Link isExternal color="teal" href={link} pointerEvents="all">
+                  Show on Google Maps{" "}
+                  <ExternalLinkIcon fontSize="lg" mb={1} ml={1} />
                 </Link>
               </Box>
             </Box>
