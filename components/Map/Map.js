@@ -13,7 +13,7 @@ const defaultProps = {
 };
 
 const options = {
-  panControl: false,
+  panControl: true,
   mapTypeControl: false,
   scrollwheel: false,
   // draggable: false,

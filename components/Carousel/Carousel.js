@@ -63,7 +63,7 @@ export default function Carousel({
               <Box>
                 <Text>{description}</Text>
               </Box>
-              <Box mt={2}>
+              <Box mt={6}>
                 <Link isExternal color="teal" href={link} pointerEvents="all">
                   Show on Google Maps{" "}
                   <ExternalLinkIcon fontSize="lg" mb={1} ml={1} />

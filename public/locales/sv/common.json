@@ -11,6 +11,11 @@
   "saturday": "Lör",
   "july": "juli",
   "phrasesIntro": "En samling användbara fraser.",
+  "photosIntro": "Dela dina foton.",
+  "weddingDayIntro": "Lorem ipsum.",
+  "rsvpIntro": "Bekräfta om du kommer eller ej.",
+  "venueIntro": "Platser.",
+  "travelIntro": "Lorem ipsum.",
   "missingResponseIdTitle": "Kunde inte hämta gammalt svar",
   "missingResponseIdDescription": "Skicka in ditt svar på nytt med samma e-postadress",
   "or": "eller"

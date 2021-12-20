@@ -5,11 +5,37 @@ import { Divider } from "@chakra-ui/react";
 import { useTranslation } from "react-i18next";
 import flowersTop from "../../images/top.jpg";
 import flowersBottom from "../../images/bottom.jpg";
+// import Heart from "../../images/other_heart_full.svg";
 
 export default function HeaderText() {
   const { t } = useTranslation();
+  // const ref = useRef();
+
+  // useEffect(() => {
+  //   const element = ref.current;
+  //   if (!element) return;
+  //   const handler = () => {
+  //     element.querySelector("path").classList.add("fill");
+  //   };
+  //   element.addEventListener("animationend", handler);
+  //   return () => {
+  //     element.removeEventListener("animationend", handler);
+  //   };
+  // }, []);
+
   return (
     <Box p={3} position="relative" justifyContent="center" alignItems="center">
+      {/* <Box
+        ref={ref}
+        className="draw"
+        w="300px"
+        position="absolute"
+        zIndex={1}
+        top="0"
+        right={-5}
+      >
+        <Heart width="100%" />
+      </Box> */}
       <Box
         position="absolute"
         w="100%"
@@ -60,16 +86,6 @@ export default function HeaderText() {
             position="relative"
           >
             &
-            {/* <Box
-                  ref={ref}
-                  className="draw"
-                  position="absolute"
-                  top={-5}
-                  right={-2}
-                  w="110px"
-                >
-                  <Heart width="100%" />
-                </Box> */}
           </Heading>
           <Heading
             lineHeight={1}

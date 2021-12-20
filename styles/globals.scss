@@ -35,8 +35,6 @@ a {
 
 .gradient-text {
   color: #f35626;
-  // background-image: -webkit-linear-gradient(149deg, #fff7ab, #ffe77c, #fff3bc);
-  // background-image: linear-gradient(121deg, #ff7272, #ffacac, #f57373);
   background-image: linear-gradient(30deg, #0f0f0f, #7a7a7a, #292929);
   background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -60,16 +58,12 @@ a {
 }
 
 .draw path {
-  stroke: #5c5c5c;
-  // stroke: #fc9292;
-  stroke-width: 10;
-  fill-opacity: 0;
-  fill: #5c5c5c;
-  // fill: #fc9292;
+  stroke: #fc9292;
+  stroke-width: 5;
+  fill: transparent;
   stroke-dasharray: 1400;
   stroke-dashoffset: 1400;
-  animation: dash 2s 0.5s ease-in-out forwards;
-  transition: fill-opacity 1.2s ease-in-out;
+  animation: dash 3s 0.5s ease-in-out forwards;
 }
 
 @keyframes dash {

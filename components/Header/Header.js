@@ -1,24 +1,11 @@
-import React, { useEffect, useRef } from "react";
+import React from "react";
 import { Box } from "@chakra-ui/layout";
 import { Backdrop } from "../Backdrop";
+
 import LanguageSelect from "../LanguageSelect/LanguageSelect";
 import HeaderText from "../HeaderText/HeaderText";
 
 export default function Header() {
-  const ref = useRef();
-
-  useEffect(() => {
-    const element = ref.current;
-    if (!element) return;
-    const handler = () => {
-      element.querySelector("path").classList.add("fill");
-    };
-    element.addEventListener("animationend", handler);
-    return () => {
-      element.removeEventListener("animationend", handler);
-    };
-  }, []);
-
   return (
     <Box
       position="relative"
