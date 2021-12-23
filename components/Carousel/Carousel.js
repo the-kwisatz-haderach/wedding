@@ -14,15 +14,17 @@ export default function Carousel({
   onNext,
   onPrevious,
 }) {
+  const renders = useRef(0);
   const ref = useRef(null);
 
   useEffect(() => {
-    if (ref.current) {
+    if (renders.current > 0 && ref.current) {
       ref.current.children[activeIndex].scrollIntoView({
         behavior: "smooth",
         block: "nearest",
       });
     }
+    renders.current += 1;
   }, [activeIndex]);
 
   return (
@@ -64,7 +66,13 @@ export default function Carousel({
                 <Text>{description}</Text>
               </Box>
               <Box mt={6}>
-                <Link isExternal color="teal" href={link} pointerEvents="all">
+                <Link
+                  fontWeight="bold"
+                  isExternal
+                  color="red.500"
+                  href={link}
+                  pointerEvents="all"
+                >
                   Show on Google Maps{" "}
                   <ExternalLinkIcon fontSize="lg" mb={1} ml={1} />
                 </Link>
