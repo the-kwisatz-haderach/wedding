@@ -7,6 +7,7 @@ import {
   ArrowRightIcon,
   ArrowLeftIcon,
 } from "@chakra-ui/icons";
+import ExternalLink from "../ExternalLink/ExternalLink";
 
 export default function Carousel({
   items = [],
@@ -34,7 +35,6 @@ export default function Carousel({
         flexWrap="nowrap"
         width="100%"
         position="relative"
-        pointerEvents="none"
         overflowX="scroll"
         className="hide-scrollbar"
         style={{
@@ -66,16 +66,7 @@ export default function Carousel({
                 <Text>{description}</Text>
               </Box>
               <Box mt={6}>
-                <Link
-                  fontWeight="bold"
-                  isExternal
-                  color="red.500"
-                  href={link}
-                  pointerEvents="all"
-                >
-                  Show on Google Maps{" "}
-                  <ExternalLinkIcon fontSize="lg" mb={1} ml={1} />
-                </Link>
+                <ExternalLink href={link}>Show on Google Maps</ExternalLink>
               </Box>
             </Box>
           </Flex>

@@ -1,88 +1,41 @@
 import React from "react";
-import { Box, Heading, Text } from "@chakra-ui/react";
-import { TimeIcon } from "@chakra-ui/icons";
+import { Box } from "@chakra-ui/react";
+import Tabs from "../Tabs/Tabs";
+import { WeddingDayContent } from "./WeddingDayContent";
+import { DayAfterWeddingContent } from "./DayAfterWeddingContent";
+import { BeforeWeddingContent } from "./BeforeWeddingContent";
 
-/*
-title
-time
-description
-*/
+const tabs = [
+  {
+    label: "Days before the wedding",
+    Content: BeforeWeddingContent,
+    timestamp: 0,
+  },
+  {
+    label: "9 July - Wedding Day",
+    Content: WeddingDayContent,
+    timestamp: Date.parse("2022-07-09"),
+  },
+  {
+    label: "10 July - Day after",
+    Content: DayAfterWeddingContent,
+    timestamp: Date.parse("2022-07-10"),
+  },
+];
 
-export default function Schedule({ items = [] }) {
+const getDefaultIndex = () => {
+  const currentDate = Date.now();
   return (
-    <Box
-      backgroundColor={["transparent", "transparent", "white"]}
-      boxShadow={["none", "none", "5px 20px 40px -15px #00000026"]}
-      borderRadius={20}
-      pl={0}
-      pr={[0, 0, 12]}
-    >
-      <Box
-        py={20}
-        maxWidth="800px"
-        margin="auto"
-        display="flex"
-        flexDir="column"
-        sx={{
-          "& > *:not(:last-child)": {
-            marginBottom: 16,
-          },
-        }}
-      >
-        {items.map((item, index) => (
-          <Box
-            key={index}
-            display="flex"
-            position="relative"
-            sx={{
-              "&:not(:last-child)::before": {
-                content: '""',
-                position: "absolute",
-                top: "50px",
-                left: "40px",
-                width: "2px",
-                backgroundColor: "rgba(0,0,0,0.1)",
-                height: "120%",
-              },
-            }}
-          >
-            <Box
-              ml={4}
-              mr={10}
-              flexShrink={0}
-              display="flex"
-              justifyContent="center"
-              alignItems="center"
-              color="white"
-              fontWeight="bold"
-              w={50}
-              h={50}
-              backgroundColor="red.400"
-              borderRadius="50%"
-              boxShadow="lg"
-            >
-              {index + 1}
-            </Box>
-            <Box>
-              <Heading>
-                <span
-                  style={{
-                    marginRight: 5,
-                  }}
-                >
-                  {item.symbol}
-                </span>{" "}
-                {item.title}
-              </Heading>
-              <Text my={2} color="gray.500">
-                <TimeIcon position="relative" bottom="2px" mr="2px" />{" "}
-                {item.time}
-              </Text>
-              <Text>{item.description}</Text>
-            </Box>
-          </Box>
-        ))}
-      </Box>
+    tabs.length -
+    1 -
+    [...tabs].reverse().findIndex((tab) => tab.timestamp < currentDate)
+  );
+};
+
+export default function Schedule() {
+  return (
+    <Box>
+      <Tabs defaultIndex={getDefaultIndex()} tabs={tabs} />
     </Box>
   );
 }

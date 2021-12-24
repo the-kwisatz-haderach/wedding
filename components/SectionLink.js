@@ -5,8 +5,8 @@ export default function SectionLink({ children, id, index }) {
   const onClick = () => {
     document.getElementById(id).scrollIntoView({
       behavior: "smooth",
-      block: "center",
-      inline: "center",
+      block: "start",
+      inline: "start",
     });
   };
 

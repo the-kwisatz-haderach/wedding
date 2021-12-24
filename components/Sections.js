@@ -17,6 +17,7 @@ export default function Sections({ sections }) {
             id={id}
             paddingBottom="6rem"
             paddingTop="3rem"
+            overflow="hidden"
           >
             <Container
               maxW="container.lg"

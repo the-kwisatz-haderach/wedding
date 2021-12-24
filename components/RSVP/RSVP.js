@@ -164,7 +164,7 @@ export default function RSVP() {
               >
                 {t("rsvpCTA")}
               </Button>
-              <Text ml={2}>{t("letUsKnow")}</Text>
+              <Text ml={4}>{t("letUsKnow")}</Text>
             </Flex>
             <Flex alignItems="center" my={6}>
               <Divider mr={4} />
