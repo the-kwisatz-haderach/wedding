@@ -30,7 +30,8 @@ export function Regular({
   symbol = "",
   description = "",
   time = "",
-  locationLink = "",
+  link = "",
+  linkLabel = "",
 }) {
   return (
     <Box>
@@ -76,9 +77,9 @@ export function Regular({
           <Heading lineHeight="1">{title}</Heading>
         </Flex>
         <Text mb={3}>{description}</Text>
-        {locationLink && (
+        {link && linkLabel && (
           <Box textAlign="right">
-            <ExternalLink href={locationLink}>View on Google Maps</ExternalLink>
+            <ExternalLink href={link}>{linkLabel}</ExternalLink>
           </Box>
         )}
       </Box>

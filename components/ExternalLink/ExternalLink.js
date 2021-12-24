@@ -1,6 +1,6 @@
 import React from "react";
 import { ExternalLinkIcon } from "@chakra-ui/icons";
-import { Link } from "@chakra-ui/react";
+import { Box, Link } from "@chakra-ui/react";
 
 export default function ExternalLink({ href = "", children = "" }) {
   return (
@@ -11,7 +11,16 @@ export default function ExternalLink({ href = "", children = "" }) {
       href={href}
       pointerEvents="all"
     >
-      {children}
+      <Box
+        display="inline-block"
+        sx={{
+          "&::first-letter": {
+            textTransform: "uppercase",
+          },
+        }}
+      >
+        {children}
+      </Box>
       <ExternalLinkIcon fontSize="lg" mb={1} ml={2} />
     </Link>
   );

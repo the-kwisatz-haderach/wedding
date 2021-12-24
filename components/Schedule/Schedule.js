@@ -1,29 +1,28 @@
 import React from "react";
-import { Box } from "@chakra-ui/react";
+import { useTranslation } from "next-i18next";
 import Tabs from "../Tabs/Tabs";
-import { WeddingDayContent } from "./WeddingDayContent";
-import { DayAfterWeddingContent } from "./DayAfterWeddingContent";
-import { BeforeWeddingContent } from "./BeforeWeddingContent";
+import TimelineComponent from "../Timeline/Timeline";
+import { weddingDay, before, after } from "./createItems";
 
-const tabs = [
+const createTabs = (t) => [
   {
-    label: "Days before the wedding",
-    Content: BeforeWeddingContent,
+    label: t("tabLabelBefore"),
+    Content: () => <TimelineComponent color="red.500" items={before(t)} />,
     timestamp: 0,
   },
   {
-    label: "9 July - Wedding Day",
-    Content: WeddingDayContent,
+    label: t("tabLabelWeddingDay"),
+    Content: () => <TimelineComponent color="red.500" items={weddingDay(t)} />,
     timestamp: Date.parse("2022-07-09"),
   },
   {
-    label: "10 July - Day after",
-    Content: DayAfterWeddingContent,
+    label: t("tabLabelDayAfter"),
+    Content: () => <TimelineComponent color="red.500" items={after(t)} />,
     timestamp: Date.parse("2022-07-10"),
   },
 ];
 
-const getDefaultIndex = () => {
+const getDefaultIndex = (tabs) => {
   const currentDate = Date.now();
   return (
     tabs.length -
@@ -33,9 +32,7 @@ const getDefaultIndex = () => {
 };
 
 export default function Schedule() {
-  return (
-    <Box>
-      <Tabs defaultIndex={getDefaultIndex()} tabs={tabs} />
-    </Box>
-  );
+  const { t } = useTranslation(["schedule", "common"]);
+  const tabs = createTabs(t);
+  return <Tabs defaultIndex={getDefaultIndex(tabs)} tabs={tabs} />;
 }

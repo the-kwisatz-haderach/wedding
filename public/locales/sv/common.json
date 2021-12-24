@@ -18,5 +18,7 @@
   "travelIntro": "Lorem ipsum.",
   "missingResponseIdTitle": "Kunde inte hämta gammalt svar",
   "missingResponseIdDescription": "Skicka in ditt svar på nytt med samma e-postadress",
-  "or": "eller"
+  "or": "eller",
+  "showOnGoogleMaps": "visa på Google Maps",
+  "readMore": "läs mer"
 }

@@ -5,17 +5,17 @@ import { After } from "./After";
 
 const createTabs = (t) => [
   {
-    label: "Traveling to Široki Brijeg",
+    label: t("tabLabelTravelToWedding"),
     Content: Before,
   },
   {
-    label: "Vacationing after the wedding",
+    label: t("tabLabelVacation"),
     Content: After,
   },
 ];
 
 export default function Travel() {
-  const { t } = useTranslation();
+  const { t } = useTranslation("travel");
   const tabs = createTabs(t);
   return (
     <Tabs isFitted isLazy variant="enclosed">

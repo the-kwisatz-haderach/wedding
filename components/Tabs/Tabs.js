@@ -15,17 +15,38 @@ export default function Tabs({
       defaultIndex={defaultIndex}
       isFitted
       isLazy
-      variant="line"
+      variant="solid-rounded"
       colorScheme="red"
     >
-      <TabList mb="1em">
+      <TabList
+        mb="1em"
+        overflowY="hidden"
+        overflowX="auto"
+        className="hide-scrollbar"
+        px={4}
+        mx={-4}
+        h={16}
+        style={{
+          scrollSnapType: "x proximity",
+        }}
+      >
         {tabs.map(({ label }) => (
-          <Tab key={label}>{label}</Tab>
+          <Tab
+            width="100%"
+            flexShrink={0}
+            key={label}
+            minW={210}
+            style={{
+              scrollSnapAlign: "center",
+            }}
+          >
+            {label}
+          </Tab>
         ))}
       </TabList>
       <TabPanels>
         {tabs.map(({ Content, label }) => (
-          <TabPanel key={label}>
+          <TabPanel key={label} p={0}>
             <Content />
           </TabPanel>
         ))}
