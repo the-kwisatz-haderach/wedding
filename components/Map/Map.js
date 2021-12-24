@@ -9,7 +9,7 @@ import sirokiBrijeg from "../../images/siroki-brijeg.jpeg";
 
 const defaultProps = {
   center: [43.3662828, 17.51],
-  zoom: 11,
+  zoom: 12,
 };
 
 const options = {
@@ -27,8 +27,7 @@ const locations = [
     title: "The Party",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-    image: maricaGaj,
-    link: "https://goo.gl/maps/ZvaiiD4hyDD78sfq6",
+    image: sirokiBrijeg,
   },
   {
     lat: 43.387034744817086,
@@ -37,7 +36,6 @@ const locations = [
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
     image: sirokiBrijeg,
-    link: "https://goo.gl/maps/ZvaiiD4hyDD78sfq6",
   },
   {
     lat: 43.37495449452526,
@@ -45,24 +43,13 @@ const locations = [
     title: "The Church",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-    image: church,
-    link: "https://google.se",
+    image: sirokiBrijeg,
   },
 ];
 
 export default function Map() {
   const [selectedLocation, setSelectedLocation] = useState(0);
   const [mapCenter, setMapCenter] = useState(defaultProps.center);
-
-  const goToPrev = () => {
-    setSelectedLocation((current) =>
-      current === 0 ? locations.length - 1 : current - 1
-    );
-  };
-
-  const goToNext = () => {
-    setSelectedLocation((current) => (current + 1) % locations.length);
-  };
 
   useEffect(() => {
     setMapCenter([
@@ -75,15 +62,14 @@ export default function Map() {
     <Box mb="-6rem">
       <Container maxWidth="container.xl">
         <Carousel
-          onNext={goToNext}
-          onPrevious={goToPrev}
+          onChangeIndex={setSelectedLocation}
           items={locations}
           activeIndex={selectedLocation}
         />
       </Container>
       <div
         style={{
-          height: "60vh",
+          height: "40vh",
           width: "100%",
           borderTop: "1px solid rgba(0,0,0,0.2)",
           borderBottom: "1px solid rgba(0,0,0,0.2)",

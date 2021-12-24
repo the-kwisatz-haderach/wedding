@@ -24,8 +24,8 @@ export default function AlternatingList({
         ) => (
           <Stack
             key={index}
-            alignItems="flex-start"
-            spacing={10}
+            alignItems="center"
+            spacing={[2, 2, 10]}
             direction={
               index % 2 === 0
                 ? ["column", "column", "row-reverse"]
@@ -49,7 +49,11 @@ export default function AlternatingList({
             <Box py={2} flex={2} width="100%">
               <Heading>{title}</Heading>
               <Text my={3}>{description}</Text>
-              {link && <ExternalLink href={link}>{linkLabel}</ExternalLink>}
+              {link && (
+                <Box textAlign={["right", "right", "left"]} width="100%">
+                  <ExternalLink href={link}>{linkLabel}</ExternalLink>
+                </Box>
+              )}
             </Box>
           </Stack>
         )

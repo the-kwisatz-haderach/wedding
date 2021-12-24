@@ -19,6 +19,7 @@
     "google-map-react": "^2.1.10",
     "google-spreadsheet": "^3.1.15",
     "googleapis": "^39.2.0",
+    "lodash.debounce": "^4.0.8",
     "nanoid": "^3.1.30",
     "next": "11.1.2",
     "next-i18next": "^8.9.0",

@@ -15,6 +15,9 @@ export default function SectionMenu({ sections }) {
       overflowX="scroll"
       className="hide-scrollbar"
       alignItems="center"
+      borderBottomWidth={2}
+      borderBottomStyle="solid"
+      borderBottomColor="gray.200"
       justifyContent={["flex-start", "flex-start", "center"]}
     >
       <Box w="fit-content" display="flex">

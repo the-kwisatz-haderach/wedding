@@ -19,7 +19,7 @@ export default function Tabs({
       colorScheme="red"
     >
       <TabList
-        mb="1em"
+        mb={5}
         overflowY="hidden"
         overflowX="auto"
         className="hide-scrollbar"

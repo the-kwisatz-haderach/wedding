@@ -1,37 +1,74 @@
-import React, { useEffect, useRef } from "react";
+import React, { useCallback, useEffect, useRef } from "react";
+import debounce from "lodash.debounce";
 import Image from "next/image";
-import { Box, Flex, Heading, Text } from "@chakra-ui/layout";
-import { Button, Link } from "@chakra-ui/react";
-import {
-  ExternalLinkIcon,
-  ArrowRightIcon,
-  ArrowLeftIcon,
-} from "@chakra-ui/icons";
-import ExternalLink from "../ExternalLink/ExternalLink";
+import { Box, Flex, Text } from "@chakra-ui/layout";
+import { Button } from "@chakra-ui/react";
+import { ArrowRightIcon, ArrowLeftIcon } from "@chakra-ui/icons";
 
-export default function Carousel({
-  items = [],
-  activeIndex,
-  onNext,
-  onPrevious,
-}) {
-  const renders = useRef(0);
+export default function Carousel({ items = [], activeIndex, onChangeIndex }) {
   const ref = useRef(null);
+  const renders = useRef(0);
+  const goToNext = () => {
+    const newIndex = (activeIndex + 1) % items.length;
+    onChangeIndex(newIndex);
+  };
+  const goToPrevious = () => {
+    const newIndex = activeIndex === 0 ? items.length - 1 : activeIndex - 1;
+    onChangeIndex(newIndex);
+  };
 
   useEffect(() => {
-    if (renders.current > 0 && ref.current) {
+    if (renders.current > 0) {
       ref.current.children[activeIndex].scrollIntoView({
         behavior: "smooth",
         block: "nearest",
       });
     }
     renders.current += 1;
-  }, [activeIndex]);
+  }, [activeIndex, ref]);
+
+  const onScroll = useCallback(
+    debounce(
+      (e) => {
+        onChangeIndex(
+          Math.max(
+            Array.from(e.target.children).findIndex(
+              (child) => e.target.scrollLeft <= child.offsetLeft
+            ),
+            0
+          )
+        );
+      },
+      200,
+      {
+        trailing: true,
+        leading: false,
+      }
+    ),
+    [onChangeIndex]
+  );
 
   return (
-    <Box display="flex" flexDir="column">
+    <Box display="flex" flexDir="column" mb={4}>
+      <Flex
+        my={4}
+        width="100%"
+        justifyContent="space-between"
+        alignItems="center"
+      >
+        <Button colorScheme="teal" onClick={goToPrevious}>
+          <ArrowLeftIcon fontSize="xs" />
+        </Button>
+        <Text fontWeight="bold" fontSize="xl">
+          {items[activeIndex].title}
+        </Text>
+        <Button colorScheme="teal" onClick={goToNext}>
+          <ArrowRightIcon fontSize="xs" />
+        </Button>
+      </Flex>
       <Flex
         ref={ref}
+        onScroll={onScroll}
         flexWrap="nowrap"
         width="100%"
         position="relative"
@@ -42,7 +79,7 @@ export default function Carousel({
           scrollSnapType: "x mandatory",
         }}
       >
-        {items.map(({ title, description, image, link }, index) => (
+        {items.map(({ description, image }, index) => (
           <Flex
             key={index}
             flexShrink={0}
@@ -55,30 +92,19 @@ export default function Carousel({
               scrollSnapAlign: "start",
             }}
           >
-            <Box borderRadius={10} position="relative" width="100%">
+            <Box
+              borderRadius={10}
+              position="relative"
+              width="100%"
+              mb={[5, 5, 0]}
+            >
               <Image src={image} alt="title" layout="responsive" />
             </Box>
-            <Box ml={[undefined, undefined, 10]} mt={[5, 5, 0]}>
-              <Flex alignItems="center">
-                <Heading style={{ marginBottom: 8 }}>{title}</Heading>
-              </Flex>
-              <Box>
-                <Text>{description}</Text>
-              </Box>
-              <Box mt={6}>
-                <ExternalLink href={link}>Show on Google Maps</ExternalLink>
-              </Box>
+            <Box ml={[undefined, undefined, 10]} mb={[3, 3, 0]}>
+              <Text>{description}</Text>
             </Box>
           </Flex>
         ))}
-      </Flex>
-      <Flex my={8} width="100%" justifyContent="space-between">
-        <Button colorScheme="teal" onClick={onPrevious}>
-          <ArrowLeftIcon mr={2} fontSize="xs" /> Previous
-        </Button>
-        <Button colorScheme="teal" onClick={onNext}>
-          Next <ArrowRightIcon ml={2} fontSize="xs" />
-        </Button>
       </Flex>
     </Box>
   );

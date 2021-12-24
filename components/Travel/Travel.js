@@ -1,36 +1,21 @@
-import { Tab, TabList, TabPanel, TabPanels, Tabs } from "@chakra-ui/react";
 import { useTranslation } from "next-i18next";
-import { Before } from "./Before";
-import { After } from "./After";
+import { before, after } from "./tabs";
+import Tabs from "../Tabs/Tabs";
+import AlternatingList from "../AlternatingList/AlternatingList";
 
 const createTabs = (t) => [
   {
     label: t("tabLabelTravelToWedding"),
-    Content: Before,
+    Content: () => <AlternatingList items={before(t)} />,
   },
   {
     label: t("tabLabelVacation"),
-    Content: After,
+    Content: () => <AlternatingList items={after(t)} />,
   },
 ];
 
 export default function Travel() {
-  const { t } = useTranslation("travel");
+  const { t } = useTranslation(["travel", "common"]);
   const tabs = createTabs(t);
-  return (
-    <Tabs isFitted isLazy variant="enclosed">
-      <TabList mb="1em">
-        {tabs.map(({ label }) => (
-          <Tab key={label}>{label}</Tab>
-        ))}
-      </TabList>
-      <TabPanels>
-        {tabs.map(({ Content, label }) => (
-          <TabPanel key={label}>
-            <Content />
-          </TabPanel>
-        ))}
-      </TabPanels>
-    </Tabs>
-  );
+  return <Tabs tabs={tabs} />;
 }

@@ -13,6 +13,10 @@ const phrases = [
     phrase: "Tack",
     translation: "Hvala",
   },
+  {
+    phrase: "Skål",
+    translation: "živjeli",
+  },
 ];
 
 export default function Phrases() {
