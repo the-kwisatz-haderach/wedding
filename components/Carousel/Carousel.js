@@ -42,7 +42,7 @@ export default function Carousel({ items = [], activeIndex, onChangeIndex }) {
       200,
       {
         trailing: true,
-        leading: false,
+        leading: true,
       }
     ),
     [onChangeIndex]

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Box, Flex, Heading, Text } from "@chakra-ui/react";
 import ExternalLink from "../../ExternalLink/ExternalLink";
 import useIntersectingElement from "../../../hooks/useIntersectingElement";
@@ -37,12 +37,17 @@ export function Regular({
   const [ref, isIntersecting] = useIntersectingElement({
     removeOnIntersection: true,
   });
+
+  useEffect(() => {
+    if (ref.current && isIntersecting) {
+      ref.current.children[0].style.transform = "translateX(0vw)";
+    }
+  }, [ref, isIntersecting]);
+
   return (
     <Box ref={ref}>
       <Box
-        style={{
-          transform: `translateX(${isIntersecting ? 0 : -100}vw)`,
-        }}
+        transform="translateX(-100vw)"
         transition="transform 0.8s ease-in-out"
       >
         <Box display="flex" alignItems="center" justifyContent="center">
