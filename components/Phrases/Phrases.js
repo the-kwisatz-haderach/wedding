@@ -4,6 +4,7 @@ import { Box, Divider, Flex, Text } from "@chakra-ui/layout";
 import swedishFlag from "../../images/sweden.png";
 import croatianFlag from "../../images/croatia.png";
 import useIntersectingElement from "../../hooks/useIntersectingElement";
+import { useEffect } from "react";
 
 const phrases = [
   {
@@ -24,12 +25,17 @@ export default function Phrases() {
   const [ref, isIntersecting] = useIntersectingElement({
     removeOnIntersection: true,
   });
+
+  useEffect(() => {
+    if (ref.current && isIntersecting) {
+      ref.current.children[0].style.transform = "translateX(0vw)";
+    }
+  }, [ref, isIntersecting]);
+
   return (
     <Box ref={ref}>
       <Box
-        style={{
-          transform: `translateX(${isIntersecting ? 0 : -100}vw)`,
-        }}
+        transform="translateX(-100vw)"
         transition="transform 0.8s ease-in-out"
         backgroundColor="white"
         borderRadius={20}

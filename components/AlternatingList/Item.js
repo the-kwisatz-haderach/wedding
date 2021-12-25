@@ -2,6 +2,7 @@ import Image from "next/image";
 import { Stack, Box, Heading, Text } from "@chakra-ui/react";
 import ExternalLink from "../ExternalLink/ExternalLink";
 import useIntersectingElement from "../../hooks/useIntersectingElement";
+import { useEffect } from "react";
 
 export const Item = ({
   isEven = false,
@@ -15,14 +16,17 @@ export const Item = ({
   const [ref, isIntersecting] = useIntersectingElement({
     removeOnIntersection: true,
   });
+
+  useEffect(() => {
+    if (ref.current && isIntersecting) {
+      ref.current.children[0].style.transform = "translateX(0vw)";
+    }
+  }, [ref, isIntersecting]);
+
   return (
     <Box ref={ref}>
       <Stack
-        style={{
-          transform: `translateX(${
-            isIntersecting ? 0 : isEven ? -100 : 100
-          }vw)`,
-        }}
+        transform={`translateX(${isEven ? -100 : 100}vw)`}
         transition="transform 0.8s ease-in-out"
         alignItems="center"
         spacing={[2, 2, 10]}

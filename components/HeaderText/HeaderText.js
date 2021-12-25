@@ -1,15 +1,19 @@
 import React from "react";
 import Image from "next/image";
 import { Box, Flex, Heading, Text } from "@chakra-ui/layout";
-import { Divider } from "@chakra-ui/react";
+import { Divider, Fade, ScaleFade } from "@chakra-ui/react";
 import { useTranslation } from "react-i18next";
 import flowersTop from "../../images/top.jpg";
 import flowersBottom from "../../images/bottom.jpg";
+import useIntersectingElement from "../../hooks/useIntersectingElement";
+
 // import Heart from "../../images/other_heart_full.svg";
 
 export default function HeaderText() {
   const { t } = useTranslation();
-  // const ref = useRef();
+  const [ref, isIntersecting] = useIntersectingElement({
+    removeOnIntersection: true,
+  });
 
   // useEffect(() => {
   //   const element = ref.current;
@@ -24,7 +28,13 @@ export default function HeaderText() {
   // }, []);
 
   return (
-    <Box p={3} position="relative" justifyContent="center" alignItems="center">
+    <Box
+      p={3}
+      position="relative"
+      justifyContent="center"
+      alignItems="center"
+      ref={ref}
+    >
       {/* <Box
         ref={ref}
         className="draw"
@@ -36,24 +46,38 @@ export default function HeaderText() {
       >
         <Heart width="100%" />
       </Box> */}
-      <Box
-        position="absolute"
-        w="100%"
-        h="auto"
-        bottom={["92%", "71%", "60%"]}
-        left={0}
+      <Fade
+        in={isIntersecting}
+        transition={{
+          enter: { duration: 1 },
+        }}
       >
-        <Image src={flowersTop} layout="responsive" alt="flowers" />
-      </Box>
-      <Box
-        position="absolute"
-        w="100%"
-        h="auto"
-        top={["92%", "71%", "60%"]}
-        left={0}
+        <Box
+          position="absolute"
+          w="100%"
+          h="auto"
+          bottom={["92%", "71%", "60%"]}
+          left={0}
+        >
+          <Image src={flowersTop} layout="responsive" alt="flowers" />
+        </Box>
+      </Fade>
+      <Fade
+        in={isIntersecting}
+        transition={{
+          enter: { duration: 1 },
+        }}
       >
-        <Image src={flowersBottom} layout="responsive" alt="flowers" />
-      </Box>
+        <Box
+          position="absolute"
+          w="100%"
+          h="auto"
+          top={["92%", "71%", "60%"]}
+          left={0}
+        >
+          <Image src={flowersBottom} layout="responsive" alt="flowers" />
+        </Box>
+      </Fade>
       <Box
         border="1px solid #cfa344"
         zIndex={2}
@@ -65,43 +89,42 @@ export default function HeaderText() {
         position="relative"
         flexDir="column"
       >
-        <Flex
-          flexDir={["column", "row"]}
-          alignItems="center"
-          className="move-up"
-        >
-          <Heading
-            className="gradient-text"
-            lineHeight={1}
-            position="relative"
-            px={[2, 8]}
-            fontSize={["5xl", "6xl", "8xl", "8rem"]}
-          >
-            Dunja
-          </Heading>
-          <Heading
-            lineHeight={1}
-            className="gradient-text"
-            fontSize={["3xl", "5xl", "6xl", "6rem"]}
-            position="relative"
-          >
-            &
-          </Heading>
-          <Heading
-            lineHeight={1}
-            className="gradient-text"
-            px={[2, 8]}
-            fontSize={["5xl", "6xl", "8xl", "8rem"]}
-          >
-            Gustaf
-          </Heading>
-        </Flex>
+        <ScaleFade in={isIntersecting} initialScale={0}>
+          <Flex flexDir={["column", "row"]} alignItems="center">
+            <Heading
+              className="gradient-text"
+              lineHeight={1}
+              position="relative"
+              px={[2, 8]}
+              fontSize={["5xl", "6xl", "8xl", "8rem"]}
+            >
+              Dunja
+            </Heading>
+            <Heading
+              lineHeight={1}
+              className="gradient-text"
+              fontSize={["3xl", "5xl", "6xl", "6rem"]}
+              position="relative"
+            >
+              &
+            </Heading>
+            <Heading
+              lineHeight={1}
+              className="gradient-text"
+              px={[2, 8]}
+              fontSize={["5xl", "6xl", "8xl", "8rem"]}
+            >
+              Gustaf
+            </Heading>
+          </Flex>
+        </ScaleFade>
         <Flex flexDir={["column", "row"]} mt={[3, 0]} alignItems="center">
           <Text
             fontSize={["sm", "sm", "lg", "xl"]}
             mr={[0, 0, 4]}
             mb={[3, 0]}
             style={{
+              animationPlayState: isIntersecting ? "running" : "paused",
               transformOrigin: "right",
               animationDelay: "0.3s",
             }}
@@ -120,6 +143,7 @@ export default function HeaderText() {
               <Text
                 fontWeight="bold"
                 style={{
+                  animationPlayState: isIntersecting ? "running" : "paused",
                   transformOrigin: "right",
                   animationDelay: "1s",
                 }}
@@ -131,6 +155,7 @@ export default function HeaderText() {
             <Divider
               orientation="vertical"
               style={{
+                animationPlayState: isIntersecting ? "running" : "paused",
                 transformOrigin: "right",
                 animationDelay: "1.3s",
               }}
@@ -140,6 +165,7 @@ export default function HeaderText() {
               <Text
                 fontWeight="bold"
                 style={{
+                  animationPlayState: isIntersecting ? "running" : "paused",
                   transformOrigin: "center",
                   animationDelay: "1.5s",
                 }}
@@ -151,6 +177,7 @@ export default function HeaderText() {
             <Divider
               orientation="vertical"
               style={{
+                animationPlayState: isIntersecting ? "running" : "paused",
                 transformOrigin: "right",
                 animationDelay: "1.7s",
               }}
@@ -160,6 +187,7 @@ export default function HeaderText() {
               <Text
                 fontWeight="bold"
                 style={{
+                  animationPlayState: isIntersecting ? "running" : "paused",
                   transformOrigin: "left",
                   animationDelay: "2s",
                 }}
