@@ -89,7 +89,16 @@ export default function HeaderText() {
         position="relative"
         flexDir="column"
       >
-        <ScaleFade in={isIntersecting} initialScale={0}>
+        <ScaleFade
+          in={isIntersecting}
+          initialScale={0}
+          delay={3}
+          transition={{
+            enter: {
+              duration: 1,
+            },
+          }}
+        >
           <Flex flexDir={["column", "row"]} alignItems="center">
             <Heading
               className="gradient-text"
@@ -154,6 +163,7 @@ export default function HeaderText() {
             </Box>
             <Divider
               orientation="vertical"
+              borderWidth={2}
               style={{
                 animationPlayState: isIntersecting ? "running" : "paused",
                 transformOrigin: "right",
@@ -175,6 +185,7 @@ export default function HeaderText() {
               </Text>
             </Box>
             <Divider
+              borderWidth={2}
               orientation="vertical"
               style={{
                 animationPlayState: isIntersecting ? "running" : "paused",

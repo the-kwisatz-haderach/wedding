@@ -1,7 +1,7 @@
 import React from "react";
 import { Box } from "@chakra-ui/react";
 
-export function Container({ children, color = "" }) {
+export function Container({ children }) {
   return (
     <Box
       maxWidth="800px"
@@ -17,19 +17,6 @@ export function Container({ children, color = "" }) {
         },
         "& > *:last-child": {
           marginTop: 8,
-        },
-        "&::before": {
-          content: '""',
-          position: "absolute",
-          left: 0,
-          top: 0,
-          transform: "translateX(50%) translateY(75px)",
-          width: "100%",
-          height: "calc(100% - 150px)",
-          zIndex: -1,
-          borderLeftWidth: 4,
-          borderLeftStyle: "solid",
-          borderLeftColor: color,
         },
       }}
     >

@@ -41,11 +41,32 @@ export function Regular({
   useEffect(() => {
     if (ref.current && isIntersecting) {
       ref.current.children[0].style.transform = "translateX(0vw)";
+      ref.current.classList.add("extend");
     }
   }, [ref, isIntersecting]);
 
   return (
-    <Box ref={ref}>
+    <Box
+      position="relative"
+      ref={ref}
+      sx={{
+        "&+*::before": {
+          transition: "transform 1s ease-in-out",
+          content: '""',
+          position: "absolute",
+          left: 0,
+          top: 0,
+          transformOrigin: "top",
+          transform: "translateX(50%) translateY(-50%) scaleY(0)",
+          width: "100%",
+          height: "100%",
+          zIndex: -1,
+          borderLeftWidth: 4,
+          borderLeftStyle: "solid",
+          borderLeftColor: "#ff8b8b",
+        },
+      }}
+    >
       <Box
         transform="translateX(-100vw)"
         transition="transform 0.8s ease-in-out"

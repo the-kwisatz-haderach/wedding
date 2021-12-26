@@ -15,6 +15,7 @@ export const Item = ({
 }) => {
   const [ref, isIntersecting] = useIntersectingElement({
     removeOnIntersection: true,
+    rootMargin: "200px",
   });
 
   useEffect(() => {

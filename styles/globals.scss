@@ -174,3 +174,7 @@ textarea {
     transform: translateY(0px);
   }
 }
+
+.extend::before {
+  transform: translateX(50%) translateY(-50%) scaleY(1) !important;
+}

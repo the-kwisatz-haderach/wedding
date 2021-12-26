@@ -16,7 +16,7 @@ export default function TimelineComponent({
   color = "",
 }) {
   return (
-    <Timeline.Container color={color}>
+    <Timeline.Container>
       <Timeline.Edge color={color}>{startItem}</Timeline.Edge>
       {items.map((item, index) => (
         <Timeline.Regular key={index} {...item} />
