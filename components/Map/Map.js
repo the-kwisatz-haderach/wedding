@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import GoogleMapReact from "google-map-react";
 import { Pin } from "./Pin";
 import { Box, Container } from "@chakra-ui/layout";
@@ -6,6 +6,7 @@ import Carousel from "../Carousel/Carousel";
 import maricaGaj from "../../images/marica-gaj.jpeg";
 import church from "../../images/church.jpeg";
 import sirokiBrijeg from "../../images/siroki-brijeg.jpeg";
+import { useTranslation } from "next-i18next";
 
 const defaultProps = {
   center: [43.3662828, 17.51],
@@ -20,34 +21,33 @@ const options = {
   fullscreenControl: false,
 };
 
-const locations = [
+const createLocations = (t) => [
   {
     lat: 43.3394754,
     lng: 17.43006,
-    title: "The Party",
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+    title: t("partyTitle"),
+    description: t("partyDescription"),
     image: sirokiBrijeg,
   },
   {
     lat: 43.387034744817086,
     lng: 17.59122205063004,
-    title: "The Parents",
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+    title: t("parentsTitle"),
+    description: t("parentsDescription"),
     image: sirokiBrijeg,
   },
   {
     lat: 43.37495449452526,
     lng: 17.588585935105154,
-    title: "The Church",
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+    title: t("churchTitle"),
+    description: t("churchDescription"),
     image: sirokiBrijeg,
   },
 ];
 
 export default function Map() {
+  const { t } = useTranslation("destination");
+  const locations = useMemo(() => createLocations(t), [t]);
   const [selectedLocation, setSelectedLocation] = useState(0);
   const [mapCenter, setMapCenter] = useState(defaultProps.center);
 

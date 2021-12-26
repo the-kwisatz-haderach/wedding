@@ -6,17 +6,17 @@ import { useTranslation } from "react-i18next";
 import { useFormState } from "react-hook-form";
 
 export default function FormActions({ onCancel, isLoading, control }) {
-  const { t } = useTranslation("rsvp");
+  const { t } = useTranslation(["rsvp", "common"]);
   const { isValid } = useFormState({ control });
   return (
     <Flex justifyContent="space-between">
       <Button onClick={onCancel}>
         <ChevronLeftIcon fontSize="2xl" />
-        Bakåt
+        {t("cancel")}
       </Button>
       <Button
         disabled={isLoading || !isValid}
-        loadingText="Loading..."
+        loadingText={t("loading", { ns: "common" })}
         isLoading={isLoading}
         type="submit"
         colorScheme="red"

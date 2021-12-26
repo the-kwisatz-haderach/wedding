@@ -49,7 +49,7 @@ export default function RSVPForm({
       <SimpleGrid spacing="6" w="100%">
         <Flex flexDir="column">
           <FormLabel fontWeight="bold" fontSize="sm">
-            Vi närvarar
+            {t("statusLabel")}
           </FormLabel>
           <Flex flexDir={["column", "row"]}>
             <Button
@@ -117,7 +117,6 @@ export default function RSVPForm({
                   isRequired
                   size="lg"
                   autoComplete="name"
-                  placeholder="Name"
                 />
               )}
             />
@@ -133,7 +132,6 @@ export default function RSVPForm({
               {...register("partner_name")}
               size="lg"
               autoComplete="name"
-              placeholder="Plus 1"
               disabled={name === ""}
             />
           </FormControl>

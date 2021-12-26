@@ -79,7 +79,8 @@ export default function HeaderText() {
         </Box>
       </Fade>
       <Box
-        border="1px solid #cfa344"
+        border="2px solid #cfa344"
+        borderRadius={3}
         zIndex={2}
         py={8}
         px={4}
