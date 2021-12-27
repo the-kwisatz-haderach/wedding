@@ -20,5 +20,7 @@
   "missingResponseIdDescription": "Skicka in ditt svar på nytt med samma e-postadress.",
   "or": "eller",
   "showOnGoogleMaps": "visa på Google Maps",
-  "readMore": "läs mer"
+  "readMore": "läs mer",
+  "showAll": "Visa alla",
+  "showLess": "Visa mindre"
 }

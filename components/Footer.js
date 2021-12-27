@@ -7,19 +7,15 @@ export default function Footer() {
       as="footer"
       flexDir={["column", "column", "column", "row"]}
       justifyContent="space-between"
-      style={{
-        padding: "2rem",
-        display: "flex",
-        color: "white",
-        backgroundColor: "#f57373",
-      }}
+      alignItems="flex-end"
+      px="2rem"
+      py="3rem"
+      display="flex"
+      color="white"
+      borderTop="3px solid #e73335"
+      backgroundColor="#f57373"
     >
-      <Text
-        fontSize="sm"
-        style={{
-          marginRight: "1rem",
-        }}
-      >
+      <Text fontSize="sm" mr="1rem">
         Icons made by{" "}
         <Link isExternal href="https://www.freepik.com" title="Freepik">
           Freepik

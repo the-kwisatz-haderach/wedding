@@ -2,6 +2,8 @@ import sarajevo from "../../images/sarajevo.jpeg";
 import split from "../../images/split.jpeg";
 import sirokiBrijeg from "../../images/siroki-brijeg.jpeg";
 import mostar from "../../images/mostar.jpeg";
+import makarska from "../../images/makarska.jpeg";
+import dubrovnik from "../../images/dubrovnik.jpeg";
 
 export const before = (t) => [
   {
@@ -25,10 +27,7 @@ export const before = (t) => [
 export const after = (t) => [
   {
     title: "Široki Brijeg",
-    description: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-aliquip ex ea commodo consequat.`,
+    description: t("exploreSirokiDescription"),
     imageSrc: sirokiBrijeg,
     imageAlt: "siroki brijeg",
     linkLabel: t("readMore", { ns: "common" }),
@@ -36,24 +35,42 @@ aliquip ex ea commodo consequat.`,
   },
   {
     title: "Mostar",
-    description: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-    eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-    ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-    aliquip ex ea commodo consequat.`,
+    description: t("exploreMostarDescription"),
     imageAlt: "mostar",
     imageSrc: mostar,
     linkLabel: t("readMore", { ns: "common" }),
     link: "https://www.tripadvisor.com/Tourism-g295388-Mostar_Herzegovina_Neretva_Canton_Federation_of_Bosnia_and_Herzegovina-Vacations.html",
   },
   {
+    title: "Sarajevo",
+    description: t("exploreSarajevoDescription"),
+    imageSrc: sarajevo,
+    imageAlt: "sarajevo",
+    linkLabel: t("readMore", { ns: "common" }),
+    link: "https://www.tripadvisor.com/Tourism-g295370-Split_Split_Dalmatia_County_Dalmatia-Vacations.html",
+  },
+  {
     title: "Split",
-    description: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-    eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-    ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-    aliquip ex ea commodo consequat.`,
+    description: t("exploreSplitDescription"),
     imageSrc: split,
     imageAlt: "split",
     linkLabel: t("readMore", { ns: "common" }),
     link: "https://www.tripadvisor.com/Tourism-g295370-Split_Split_Dalmatia_County_Dalmatia-Vacations.html",
+  },
+  {
+    title: "Makarska",
+    description: t("exploreMakarskaDescription"),
+    imageSrc: makarska,
+    imageAlt: "makarska",
+    linkLabel: t("readMore", { ns: "common" }),
+    link: "https://www.tripadvisor.com/Tourism-g303814-Makarska_Split_Dalmatia_County_Dalmatia-Vacations.html",
+  },
+  {
+    title: "Dubrovnik",
+    description: t("exploreDubrovnikDescription"),
+    imageSrc: dubrovnik,
+    imageAlt: "dubrovnik",
+    linkLabel: t("readMore", { ns: "common" }),
+    link: "https://www.tripadvisor.com/Tourism-g295371-Dubrovnik_Dubrovnik_Neretva_County_Dalmatia-Vacations.html",
   },
 ];

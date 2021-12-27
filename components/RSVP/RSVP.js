@@ -145,6 +145,20 @@ export default function RSVP() {
           >
             <Indicator />
             <Text mb={5}>{t("thankYouForResponding")}</Text>
+            <Text mb={5} display="flex" fontSize="sm">
+              {t("addToCalendar")}{" "}
+              <a
+                style={{ marginLeft: 8 }}
+                target="_blank"
+                rel="noreferrer"
+                href="https://calendar.google.com/event?action=TEMPLATE&amp;tmeid=MjgxNjhyYmRiMWljZ3VjcGt2djRqMnA2NWYgZ3VzdGFmbHVuZHN0cm9tOTBAbQ&amp;tmsrc=gustaflundstrom90%40gmail.com"
+              >
+                <img
+                  border="0"
+                  src="https://www.google.com/calendar/images/ext/gc_button1_sv.gif"
+                />
+              </a>
+            </Text>
             <Button
               isLoading={isLoadingFormData}
               loadingText={t("loading", { ns: "common" })}

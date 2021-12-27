@@ -1,29 +1,19 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import { Box, Divider, Flex, Text } from "@chakra-ui/layout";
+import { Button } from "@chakra-ui/react";
 import swedishFlag from "../../images/sweden.png";
 import croatianFlag from "../../images/croatia.png";
 import useIntersectingElement from "../../hooks/useIntersectingElement";
-import { useEffect } from "react";
-
-const phrases = [
-  {
-    phrase: "Goddag",
-    translation: "Dobar dan",
-  },
-  {
-    phrase: "Tack",
-    translation: "Hvala",
-  },
-  {
-    phrase: "Skål",
-    translation: "živjeli",
-  },
-];
+import { phrases } from "./phraseList";
+import { useTranslation } from "next-i18next";
 
 export default function Phrases() {
+  const { t } = useTranslation("common");
+  const [isExpanded, setIsExpanded] = useState(false);
   const [ref, isIntersecting] = useIntersectingElement({
     removeOnIntersection: true,
+    threshold: 0.5,
   });
 
   useEffect(() => {
@@ -31,6 +21,21 @@ export default function Phrases() {
       ref.current.children[0].style.transform = "translateX(0vw)";
     }
   }, [ref, isIntersecting]);
+
+  const clickExpand = () => {
+    setIsExpanded((curr) => !curr);
+    if (isExpanded) {
+      ref.current.scrollIntoView(true);
+    }
+  };
+
+  useEffect(() => {
+    if (isExpanded) {
+      document.getElementById("phrase-list").style.height = "100%";
+    } else {
+      document.getElementById("phrase-list").style.height = "270px";
+    }
+  }, [isExpanded]);
 
   return (
     <Box ref={ref}>
@@ -72,7 +77,7 @@ export default function Phrases() {
             />
           </Flex>
         </Flex>
-        <Flex flexDir="column">
+        <Flex id="phrase-list" flexDir="column" overflowY="hidden">
           {phrases.map((phrase) => (
             <React.Fragment key={phrase.phrase}>
               <Divider />
@@ -82,12 +87,22 @@ export default function Phrases() {
                 key={phrase.phrase}
                 flexWrap="wrap"
                 justifyContent="space-between"
+                sx={{
+                  "& > *::first-letter": {
+                    textTransform: "uppercase",
+                  },
+                }}
               >
                 <Text>{phrase.phrase}</Text>
                 <Text>{phrase.translation}</Text>
               </Flex>
             </React.Fragment>
           ))}
+        </Flex>
+        <Flex justifyContent="center" mt={2}>
+          <Button onClick={clickExpand} variant="solid" colorScheme="teal">
+            {isExpanded ? t("showLess") : t("showAll")}
+          </Button>
         </Flex>
       </Box>
     </Box>

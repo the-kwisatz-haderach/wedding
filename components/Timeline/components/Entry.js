@@ -36,6 +36,7 @@ export function Regular({
 }) {
   const [ref, isIntersecting] = useIntersectingElement({
     removeOnIntersection: true,
+    rootMargin: "100px",
   });
 
   useEffect(() => {
