@@ -27,7 +27,7 @@ const createLocations = (t) => [
     lng: 17.43006,
     title: t("partyTitle"),
     description: t("partyDescription"),
-    image: sirokiBrijeg,
+    image: maricaGaj,
   },
   {
     lat: 43.387034744817086,
@@ -41,7 +41,7 @@ const createLocations = (t) => [
     lng: 17.588585935105154,
     title: t("churchTitle"),
     description: t("churchDescription"),
-    image: sirokiBrijeg,
+    image: church,
   },
 ];
 

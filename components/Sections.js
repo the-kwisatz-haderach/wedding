@@ -10,7 +10,7 @@ export default function Sections({ sections }) {
         sections={sections.map(({ id, label }) => ({ id, label }))}
       />
       {sections.map(
-        ({ contained = false, id, content, label, imgSrc, preamble = "" }) => (
+        ({ contained = false, id, Content, label, imgSrc, preamble = "" }) => (
           <Box
             key={id}
             className="alternate"
@@ -57,7 +57,7 @@ export default function Sections({ sections }) {
                   {preamble}
                 </Text>
               )}
-              {content}
+              <Content />
             </Container>
           </Box>
         )
