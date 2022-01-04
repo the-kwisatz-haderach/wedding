@@ -77,7 +77,7 @@ export default function RSVP() {
           status: "success",
           position: "top",
           variant: "subtle",
-          duration: 4000,
+          duration: 6000,
           isClosable: true,
         });
       }
@@ -116,9 +116,10 @@ export default function RSVP() {
           status: "warning",
           position: "top",
           variant: "subtle",
-          duration: 4000,
+          duration: 6000,
           isClosable: true,
         });
+        window.localStorage.removeItem(RSVP_ID_KEY);
         setRsvpId("");
       }
     } finally {

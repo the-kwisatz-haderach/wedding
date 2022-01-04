@@ -34,6 +34,7 @@ export default function Sections({ sections }) {
               >
                 <Image
                   src={imgSrc}
+                  loading="eager"
                   width={60}
                   height={60}
                   alt="Rings"

@@ -1,3 +1,4 @@
+import { memo } from "react";
 import {
   Tab,
   TabList,
@@ -6,7 +7,7 @@ import {
   Tabs as ChakraTabs,
 } from "@chakra-ui/react";
 
-export default function Tabs({
+function Tabs({
   tabs = [{ Content: () => <></>, label: "" }],
   defaultIndex = 0,
 }) {
@@ -54,3 +55,5 @@ export default function Tabs({
     </ChakraTabs>
   );
 }
+
+export default memo(Tabs);

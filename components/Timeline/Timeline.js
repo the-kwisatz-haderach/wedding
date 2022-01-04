@@ -1,7 +1,7 @@
-import React from "react";
+import React, { memo } from "react";
 import * as Timeline from "./components";
 
-export default function TimelineComponent({
+function TimelineComponent({
   items = [
     {
       title: "",
@@ -27,3 +27,5 @@ export default function TimelineComponent({
     </Timeline.Container>
   );
 }
+
+export default memo(TimelineComponent);

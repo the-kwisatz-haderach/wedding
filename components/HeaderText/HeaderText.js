@@ -59,7 +59,12 @@ export default function HeaderText() {
           bottom={["92%", "71%", "60%"]}
           left={0}
         >
-          <Image src={flowersTop} layout="responsive" alt="flowers" />
+          <Image
+            src={flowersTop}
+            layout="responsive"
+            alt="flowers"
+            loading="eager"
+          />
         </Box>
       </Fade>
       <Fade

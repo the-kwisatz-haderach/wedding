@@ -49,7 +49,13 @@ export const Item = memo(
               overflow="hidden"
               boxShadow="0px 20px 30px -20px black"
             >
-              <Image src={imageSrc} alt={imageAlt} layout="responsive" />
+              <Image
+                src={imageSrc}
+                alt={imageAlt}
+                blurDataURL="/images/placeholder-img.png"
+                placeholder="blur"
+                layout="responsive"
+              />
             </Box>
           )}
           <Box py={2} flex={2} width="100%">

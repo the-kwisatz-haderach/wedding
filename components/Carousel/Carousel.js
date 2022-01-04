@@ -74,6 +74,7 @@ export default function Carousel({ items = [], activeIndex, onChangeIndex }) {
         position="relative"
         overflowX="scroll"
         className="hide-scrollbar"
+        pointerEvents="none"
         style={{
           scrollbarWidth: 0,
           scrollSnapType: "x mandatory",
@@ -98,7 +99,13 @@ export default function Carousel({ items = [], activeIndex, onChangeIndex }) {
               width={["100%", "100%", "50%"]}
               mb={[5, 5, 0]}
             >
-              <Image src={image} alt="title" layout="responsive" />
+              <Image
+                src={image}
+                alt="title"
+                layout="responsive"
+                placeholder="blur"
+                blurDataURL="/images/placeholder-img.png"
+              />
             </Box>
             <Box ml={[undefined, undefined, 10]} mb={[3, 3, 0]}>
               <Text>{description}</Text>

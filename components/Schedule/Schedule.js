@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useMemo } from "react";
 import { useTranslation } from "next-i18next";
 import Tabs from "../Tabs/Tabs";
 import TimelineComponent from "../Timeline/Timeline";
@@ -33,6 +33,7 @@ const getDefaultIndex = (tabs) => {
 
 export default function Schedule() {
   const { t } = useTranslation(["schedule", "common"]);
-  const tabs = createTabs(t);
-  return <Tabs defaultIndex={getDefaultIndex(tabs)} tabs={tabs} />;
+  const tabs = useMemo(() => createTabs(t), [t]);
+  const defaultIndex = useMemo(() => getDefaultIndex(tabs), [tabs]);
+  return <Tabs defaultIndex={defaultIndex} tabs={tabs} />;
 }

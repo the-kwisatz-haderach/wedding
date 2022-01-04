@@ -2,6 +2,7 @@ import { useTranslation } from "next-i18next";
 import { before, after } from "./tabs";
 import Tabs from "../Tabs/Tabs";
 import AlternatingList from "../AlternatingList/AlternatingList";
+import { useMemo } from "react";
 
 const createTabs = (t) => [
   {
@@ -16,6 +17,6 @@ const createTabs = (t) => [
 
 export default function Travel() {
   const { t } = useTranslation(["travel", "common"]);
-  const tabs = createTabs(t);
+  const tabs = useMemo(() => createTabs(t), [t]);
   return <Tabs tabs={tabs} />;
 }
