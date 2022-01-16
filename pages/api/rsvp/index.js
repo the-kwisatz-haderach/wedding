@@ -46,7 +46,9 @@ export default async function rsvp(req, res) {
           body.email,
           emailResponseCreators[body?.locale || "sv"](
             body,
-            `${req.headers.origin}?rsvp_id=${existingRow?.id || body.id}`
+            `${req.headers.origin}${
+              body?.locale === "hr" ? "/hr" : ""
+            }?rsvp_id=${existingRow?.id || body.id}`
           )
         );
       }

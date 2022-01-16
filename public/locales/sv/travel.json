@@ -2,12 +2,12 @@
   "findFlights": "Hitta flyg",
   "tabLabelTravelToWedding": "Ta dig till Široki Brijeg",
   "tabLabelVacation": "Att upptäcka efter bröllopet",
-  "travelToSirokiDescription": "Eftersom bröllopet är i början på sommaren, åker flyg till Split ganska ofta och många flygbolag åker till Split. Efter landningen kan man hyra en bil och köra till Široki Brijeg eller åka en buss. Resan med bil tar runt 2h och resan med buss tar upp till 4h.",
-  "travelToSarajevoDescription": "Efter landningen kan man hyra en bil och köra till Široki Brijeg, boka en privat transport eller åka en buss. Resan med bilen, privat transporten och bussen tar runt 2h. OBS att vägen är gammal och kurvig.",
-  "exploreSirokiDescription": "Široki är en stad med fantastisk natur och historik. Genom promenaden vid flod kan man komma till flodkälla, vandra till övergivna byar och klättra bergen. Oundviklig attraktion är Kula (torn) från 2a världskriget som ligger på Bošnjakovo berg, vilket har bästa utsikt på hela stan. Å andra sidan har kyrkan haft stort bidrag till stadskulturen och utbildning. Kyrkan byggdes år 1846 och ligger på ett litet berg. Förutom kyrkan, kan man gå runt konstgallerian och prästkatakomben som dödades i världskriget.",
-  "exploreMostarDescription": "Mostar fick sitt namn på många broar som kopplar sidor av flod Neretva. Huvudattraktioner är Gamla Bron, gamla stan, många kyrkor och masker? (masque), samt obligatoriska ćevapi som maträtt nära Uglovnica.",
-  "exploreSarajevoDescription": "Medan i Sarajevo är ett måste att äta burek och ćevapi, se Eviga elden, och promenera runt Baščaršija och gamla stan.",
-  "exploreMakarskaDescription": "Stad på kusten som imponerar med sin charm och fina utsikter.",
-  "exploreSplitDescription": "Turistattraktion för de som älskar Game of Thrones, bra tid och god mat, samt sol, hav och stränder.",
-  "exploreDubrovnikDescription": "Stad för de som gillar historik, mediteransk kultur, flora och fauna."
+  "travelToSirokiDescription": "I början av sommaren är det flera flygbolag som reser till Split med hög frekvens. Efter ankomst hyr man med fördel en bil för vidare färd till Široki Brijeg (ca 2 timmar), eller så åker man buss (ca 4 timmar).",
+  "travelToSarajevoDescription": "Från Sarajevo har man samma möjligheter till vidare resa: privat transport, buss eller hyrbil. OBS att vägen är gammal och kurvig. Med bil kan man räkna med ca 2,5 timmars resa.",
+  "exploreSirokiDescription": "Široki är en stad med fantastisk natur och historik. Via promenaden längs floden når man fina vandringsstråk av olika längd, kan utforska övergivna byar och vandra bland bergen. En måste-attraktion med stans bästa utsikt är Kula: en bunker från 2:a världskriget som ligger på Bošnjakovo-berget.",
+  "exploreMostarDescription": "Mostar fick sitt namn från de många broar som kopplar ihop olika sidor av floden Neretva. Huvudattraktioner är Gamla Bron, gamla stan, samt de många kyrkor och moskéer som finns i staden. Vid ett besök rekommenderas att man provsmakar ćevapi, helst från någon grill omkring området Uglovnica.",
+  "exploreSarajevoDescription": "Har man vägarna förbi huvudstaden Sarajevo är det snudd på obligatoriskt att prova en tallrik burek eller ćevapi. Man kan även ta en titt på “den eviga elden”, och promenera runt Baščaršija och gamla stan.",
+  "exploreMakarskaDescription": "Kuststad som imponerar med sin charm och fina utsikter.",
+  "exploreSplitDescription": "En plats för de som älskar Game of Thrones, god mat, och självklart sol, bad och vackra stränder. Fråga gärna bruden för specifika tips på stränder eller sevärdheter.",
+  "exploreDubrovnikDescription": "Stad för de som gillar historia och medelhavskultur."
 }
