@@ -9,11 +9,11 @@ export const before = (t) => [
   },
 ];
 
-export const weddingDay = (t) => [
+export const weddingDay = (t, locale) => [
   {
     symbol: "⛪",
     title: t("contentWeddingDayTitle_church"),
-    time: "TBD",
+    time: "16:00",
     linkLabel: t("showOnGoogleMaps", { ns: "common" }),
     link: "https://www.google.com/maps/place/Franciscan+Monastery/@43.3742976,17.5891542,15z/data=!4m5!3m4!1s0x0:0xc31ae18cdb904a08!8m2!3d43.3742976!4d17.5891542",
     description: t("contentWeddingDayDescription_church"),
@@ -21,37 +21,36 @@ export const weddingDay = (t) => [
   {
     symbol: "🪗",
     title: t("contentWeddingDayTitle_lunch"),
-    time: "TBD",
+    time: "18:00",
     linkLabel: t("showOnGoogleMaps", { ns: "common" }),
     link: "https://www.google.com/maps/place/Mari%C4%87a+Gaj/@43.3394715,17.4322487,15z/data=!4m2!3m1!1s0x0:0xeff230c777cb16e3?sa=X&ved=2ahUKEwirofe5s_z0AhUP-aQKHYQ2CDwQ_BJ6BAgzEAU",
     description: t("contentWeddingDayDescription_lunch"),
   },
-  {
-    symbol: "🍽️",
-    title: t("contentWeddingDayTitle_dinner"),
-    time: "TBD",
-    description: t("contentWeddingDayDescription_dinner"),
-  },
-  {
-    symbol: "🎉",
-    title: t("contentWeddingDayTitle_party"),
-    time: "TBD",
-    description: t("contentWeddingDayDescription_party"),
-  },
-  {
-    symbol: "🚌",
-    title: t("contentWeddingDayTitle_transport"),
-    time: "TBD",
-    description: t("contentWeddingDayDescription_transport"),
-  },
+  ...(locale === "sv"
+    ? [
+        {
+          symbol: "🎉",
+          title: t("contentWeddingDayTitle_dinner"),
+          description: t("contentWeddingDayDescription_dinner"),
+        },
+      ]
+    : []),
+  ...(locale === "sv"
+    ? [
+        {
+          symbol: "🚌",
+          title: t("contentWeddingDayTitle_transport"),
+          description: t("contentWeddingDayDescription_transport"),
+        },
+      ]
+    : []),
 ];
 
 export const after = (t) => [
   {
     symbol: "🍲",
     title: t("contentDayAfterTitle_lunch"),
-    time: "TBD",
-    link: "http://google.se",
+    time: "12:00",
     linkLabel: t("showOnGoogleMaps", { ns: "common" }),
     description: t("contentDayAfterDescription_lunch"),
   },

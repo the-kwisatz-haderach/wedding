@@ -1,13 +1,13 @@
 {
-  "findFlights": "Hitta flyg",
-  "tabLabelTravelToWedding": "Ta dig till Široki Brijeg",
-  "tabLabelVacation": "Att upptäcka efter bröllopet",
-  "travelToSirokiDescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-  "travelToSarajevoDescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-  "exploreSirokiDescription": "lorem...",
-  "exploreMostarDescription": "lorem...",
-  "exploreSarajevoDescription": "lorem...",
-  "exploreMakarskaDescription": "lorem...",
-  "exploreSplitDescription": "lorem...",
-  "exploreDubrovnikDescription": "lorem..."
+  "findFlights": "Pronađi let",
+  "tabLabelTravelToWedding": "Dolazak do Širokog Brijega",
+  "tabLabelVacation": "Doživi okolinu iza vjenčanja",
+  "travelToSirokiDescription": "Budući da je početak ljeta, letovi do Splita su jako učestali i avionska povezanost sa Splitom je jaka. Nakon slijetanja je moguće iznajmiti auto i voziti se do Širokog Brijega ili doći autobusom. Vožnja autom traje oko 1.30h, a vožnja autobusom do 4h.",
+  "travelToSarajevoDescription": "Nakon slijetanja je moguće iznajmiti auto i voziti se do Širokog Brijega, bukirati privatan prijevoz ili doći autobusom. Vožnja autom, privatnim prijevozom i autobusom traje oko 2h. Cesta je stara i ima dosta okuka.",
+  "exploreSirokiDescription": "Široki je grad pun prirode i povijesti. Šetalištem se može doći do izvora rijeke, pješačiti do zabačenih sela i popeti na okolna brda. Nezaobilazna atrakcija je Kula iz II svjetskog rata na Bošnjakovom brdu koji ima prekrasan pogled na cijeli grad. S druge strane, Crkva je imala jak doprinos kulturi i obrazovanju. Crkva je na brijegu i izgrađena 1846. Pored Crkve, može se pogledati i Franjevačka galerija, te masovna grobnica fratara ubijenih u svijetskom ratu.",
+  "exploreMostarDescription": "Mostar je dobio ime po mnogim mostovima koji povezuju strane rijeke Neretve. Glavne atrakcije su Stari most, stari grad, katedrale, džamije, te obavezni ćevapi kod Uglovnice.",
+  "exploreSarajevoDescription": "Dok ste u Sarajevu morate probati burek i ćevape, posjetiti Vječnu vatru, te prošetati Baščaršijom i starim gradom.",
+  "exploreMakarskaDescription": "Grad na obali koji oduševljava svojom rivijerom.",
+  "exploreSplitDescription": "Turistička atrakcija za one koji vole Game of Thrones, dobru zabavu i hranu, te more, sunce i plažu.",
+  "exploreDubrovnikDescription": "Grad za ljubitelje povijesti, mediteranske kulture, flore i faune."
 }

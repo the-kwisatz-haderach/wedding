@@ -55,7 +55,7 @@ export const after = (t) => [
     imageSrc: split,
     imageAlt: "split",
     linkLabel: t("readMore", { ns: "common" }),
-    link: "https://www.tripadvisor.com/Tourism-g295370-Split_Split_Dalmatia_County_Dalmatia-Vacations.html",
+    link: "https://visitsplit.com/en/1/welcome-to-split",
   },
   {
     title: "Makarska",
@@ -63,7 +63,7 @@ export const after = (t) => [
     imageSrc: makarska,
     imageAlt: "makarska",
     linkLabel: t("readMore", { ns: "common" }),
-    link: "https://www.tripadvisor.com/Tourism-g303814-Makarska_Split_Dalmatia_County_Dalmatia-Vacations.html",
+    link: "https://makarska.hr/",
   },
   {
     title: "Dubrovnik",
@@ -71,6 +71,6 @@ export const after = (t) => [
     imageSrc: dubrovnik,
     imageAlt: "dubrovnik",
     linkLabel: t("readMore", { ns: "common" }),
-    link: "https://www.tripadvisor.com/Tourism-g295371-Dubrovnik_Dubrovnik_Neretva_County_Dalmatia-Vacations.html",
+    link: "https://visitdubrovnik.hr/",
   },
 ];

@@ -8,11 +8,13 @@ import { ArrowRightIcon, ArrowLeftIcon } from "@chakra-ui/icons";
 export default function Carousel({ items = [], activeIndex, onChangeIndex }) {
   const ref = useRef(null);
   const renders = useRef(0);
-  const goToNext = () => {
+  const goToNext = (e) => {
+    e.preventDefault();
     const newIndex = (activeIndex + 1) % items.length;
     onChangeIndex(newIndex);
   };
-  const goToPrevious = () => {
+  const goToPrevious = (e) => {
+    e.preventDefault();
     const newIndex = activeIndex === 0 ? items.length - 1 : activeIndex - 1;
     onChangeIndex(newIndex);
   };
@@ -30,6 +32,7 @@ export default function Carousel({ items = [], activeIndex, onChangeIndex }) {
   const onScroll = useCallback(
     debounce(
       (e) => {
+        e.preventDefault();
         onChangeIndex(
           Math.max(
             Array.from(e.target.children).findIndex(
