@@ -27,25 +27,24 @@ export default function Sections({ sections }) {
               py={8}
               marginBottom={3}
             >
-              <Box
-                width={["60px", "60px", "70px", "90px"]}
-                height="auto"
-                position="relative"
-              >
-                <Image
-                  src={imgSrc}
-                  loading="eager"
-                  width={60}
-                  height={60}
-                  alt="Rings"
-                  layout="responsive"
-                />
-              </Box>
-              <Heading
-                marginLeft={[6, 10]}
-                size="3xl"
-                textTransform="capitalize"
-              >
+              {imgSrc && (
+                <Box
+                  marginRight={[6, 10]}
+                  width={["60px", "60px", "70px", "90px"]}
+                  height="auto"
+                  position="relative"
+                >
+                  <Image
+                    src={imgSrc}
+                    loading="eager"
+                    width={60}
+                    height={60}
+                    alt="Rings"
+                    layout="responsive"
+                  />
+                </Box>
+              )}
+              <Heading size="3xl" textTransform="capitalize">
                 {label}
               </Heading>
             </Container>

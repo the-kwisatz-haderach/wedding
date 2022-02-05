@@ -1,5 +1,4 @@
-import React, { useCallback, useEffect, useRef } from "react";
-import debounce from "lodash.debounce";
+import React, { useEffect, useRef } from "react";
 import Image from "next/image";
 import { Box, Flex, Text } from "@chakra-ui/layout";
 import { Button } from "@chakra-ui/react";
@@ -11,6 +10,7 @@ export default function Carousel({ items = [], activeIndex, onChangeIndex }) {
   const goToNext = (e) => {
     e.preventDefault();
     const newIndex = (activeIndex + 1) % items.length;
+    console.log(newIndex);
     onChangeIndex(newIndex);
   };
   const goToPrevious = (e) => {
@@ -28,28 +28,6 @@ export default function Carousel({ items = [], activeIndex, onChangeIndex }) {
     }
     renders.current += 1;
   }, [activeIndex, ref]);
-
-  const onScroll = useCallback(
-    debounce(
-      (e) => {
-        e.preventDefault();
-        onChangeIndex(
-          Math.max(
-            Array.from(e.target.children).findIndex(
-              (child) => e.target.scrollLeft <= child.offsetLeft
-            ),
-            0
-          )
-        );
-      },
-      200,
-      {
-        trailing: true,
-        leading: true,
-      }
-    ),
-    [onChangeIndex]
-  );
 
   return (
     <Box display="flex" flexDir="column" mb={4}>
@@ -71,7 +49,6 @@ export default function Carousel({ items = [], activeIndex, onChangeIndex }) {
       </Flex>
       <Flex
         ref={ref}
-        onScroll={onScroll}
         flexWrap="nowrap"
         width="100%"
         position="relative"

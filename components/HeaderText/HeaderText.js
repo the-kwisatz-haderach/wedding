@@ -5,84 +5,34 @@ import { Divider, Fade, ScaleFade } from "@chakra-ui/react";
 import { useTranslation } from "react-i18next";
 import flowersTop from "../../images/top.jpg";
 import flowersBottom from "../../images/bottom.jpg";
-import useIntersectingElement from "../../hooks/useIntersectingElement";
-
-// import Heart from "../../images/other_heart_full.svg";
 
 export default function HeaderText() {
   const { t } = useTranslation();
-  const [ref, isIntersecting] = useIntersectingElement({
-    removeOnIntersection: true,
-  });
-
-  // useEffect(() => {
-  //   const element = ref.current;
-  //   if (!element) return;
-  //   const handler = () => {
-  //     element.querySelector("path").classList.add("fill");
-  //   };
-  //   element.addEventListener("animationend", handler);
-  //   return () => {
-  //     element.removeEventListener("animationend", handler);
-  //   };
-  // }, []);
-
   return (
-    <Box
-      p={3}
-      position="relative"
-      justifyContent="center"
-      alignItems="center"
-      ref={ref}
-    >
-      {/* <Box
-        ref={ref}
-        className="draw"
-        w="300px"
+    <Box p={3} position="relative" justifyContent="center" alignItems="center">
+      <Box
         position="absolute"
-        zIndex={1}
-        top="0"
-        right={-5}
+        w="100%"
+        h="auto"
+        bottom={["92%", "71%", "60%"]}
+        left={0}
       >
-        <Heart width="100%" />
-      </Box> */}
-      <Fade
-        in={isIntersecting}
-        transition={{
-          enter: { duration: 1 },
-        }}
+        <Image
+          src={flowersTop}
+          layout="responsive"
+          alt="flowers"
+          loading="eager"
+        />
+      </Box>
+      <Box
+        position="absolute"
+        w="100%"
+        h="auto"
+        top={["92%", "71%", "60%"]}
+        left={0}
       >
-        <Box
-          position="absolute"
-          w="100%"
-          h="auto"
-          bottom={["92%", "71%", "60%"]}
-          left={0}
-        >
-          <Image
-            src={flowersTop}
-            layout="responsive"
-            alt="flowers"
-            loading="eager"
-          />
-        </Box>
-      </Fade>
-      <Fade
-        in={isIntersecting}
-        transition={{
-          enter: { duration: 1 },
-        }}
-      >
-        <Box
-          position="absolute"
-          w="100%"
-          h="auto"
-          top={["92%", "71%", "60%"]}
-          left={0}
-        >
-          <Image src={flowersBottom} layout="responsive" alt="flowers" />
-        </Box>
-      </Fade>
+        <Image src={flowersBottom} layout="responsive" alt="flowers" />
+      </Box>
       <Box
         border="2px solid #cfa344"
         borderRadius={3}
@@ -96,7 +46,7 @@ export default function HeaderText() {
         flexDir="column"
       >
         <ScaleFade
-          in={isIntersecting}
+          in
           initialScale={0}
           delay={3}
           transition={{
@@ -139,7 +89,7 @@ export default function HeaderText() {
             mr={[0, 0, 4]}
             mb={[3, 0]}
             style={{
-              animationPlayState: isIntersecting ? "running" : "paused",
+              animationPlayState: "running",
               transformOrigin: "right",
               animationDelay: "0.3s",
             }}
@@ -158,7 +108,7 @@ export default function HeaderText() {
               <Text
                 fontWeight="bold"
                 style={{
-                  animationPlayState: isIntersecting ? "running" : "paused",
+                  animationPlayState: "running",
                   transformOrigin: "right",
                   animationDelay: "1s",
                 }}
@@ -171,7 +121,7 @@ export default function HeaderText() {
               orientation="vertical"
               borderWidth={2}
               style={{
-                animationPlayState: isIntersecting ? "running" : "paused",
+                animationPlayState: "running",
                 transformOrigin: "right",
                 animationDelay: "1.3s",
               }}
@@ -181,7 +131,7 @@ export default function HeaderText() {
               <Text
                 fontWeight="bold"
                 style={{
-                  animationPlayState: isIntersecting ? "running" : "paused",
+                  animationPlayState: "running",
                   transformOrigin: "center",
                   animationDelay: "1.5s",
                 }}
@@ -194,7 +144,7 @@ export default function HeaderText() {
               borderWidth={2}
               orientation="vertical"
               style={{
-                animationPlayState: isIntersecting ? "running" : "paused",
+                animationPlayState: "running",
                 transformOrigin: "right",
                 animationDelay: "1.7s",
               }}
@@ -204,7 +154,7 @@ export default function HeaderText() {
               <Text
                 fontWeight="bold"
                 style={{
-                  animationPlayState: isIntersecting ? "running" : "paused",
+                  animationPlayState: "running",
                   transformOrigin: "left",
                   animationDelay: "2s",
                 }}

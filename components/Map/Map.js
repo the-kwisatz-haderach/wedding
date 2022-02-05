@@ -9,7 +9,7 @@ import sirokiBrijeg from "../../images/siroki-brijeg.jpeg";
 import { useTranslation } from "next-i18next";
 
 const defaultProps = {
-  center: [43.3662828, 17.51],
+  center: [43.387034744817086, 17.59122205063004],
   zoom: 12,
 };
 
@@ -23,13 +23,6 @@ const options = {
 
 const createLocations = (t) => [
   {
-    lat: 43.3394754,
-    lng: 17.43006,
-    title: t("partyTitle"),
-    description: t("partyDescription"),
-    image: maricaGaj,
-  },
-  {
     lat: 43.387034744817086,
     lng: 17.59122205063004,
     title: t("parentsTitle"),
@@ -37,11 +30,18 @@ const createLocations = (t) => [
     image: sirokiBrijeg,
   },
   {
-    lat: 43.37495449452526,
-    lng: 17.588585935105154,
+    lat: 43.387034744817086,
+    lng: 17.59122205063004,
     title: t("churchTitle"),
     description: t("churchDescription"),
     image: church,
+  },
+  {
+    lat: 43.3394754,
+    lng: 17.43006,
+    title: t("partyTitle"),
+    description: t("partyDescription"),
+    image: maricaGaj,
   },
 ];
 

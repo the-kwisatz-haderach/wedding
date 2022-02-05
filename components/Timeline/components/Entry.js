@@ -75,27 +75,30 @@ export const Regular = memo(
           transform="translateX(-100vw)"
           transition="transform 0.8s ease-in-out"
         >
-          {time && (
-            <Box display="flex" alignItems="center" justifyContent="center">
-              <Box
-                flexShrink={0}
-                display="flex"
-                height="100%"
-                p={5}
-                justifyContent="center"
-                alignItems="center"
-                color="white"
-                fontWeight="bold"
-                backgroundColor="red.100"
-                borderRadius="30px"
-                boxShadow="lg"
-                position="relative"
-                top={7}
-              >
-                {time}
-              </Box>
+          <Box
+            display="flex"
+            alignItems="center"
+            justifyContent="center"
+            visibility={time ? "visible" : "hidden"}
+          >
+            <Box
+              flexShrink={0}
+              display="flex"
+              height="100%"
+              p={5}
+              justifyContent="center"
+              alignItems="center"
+              color="white"
+              fontWeight="bold"
+              backgroundColor="red.100"
+              borderRadius="30px"
+              boxShadow="lg"
+              position="relative"
+              top={7}
+            >
+              {time}
             </Box>
-          )}
+          </Box>
           <Box
             p={[8, 8, 10]}
             borderRadius={20}

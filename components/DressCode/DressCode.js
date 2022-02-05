@@ -1,5 +1,8 @@
 import React, { useEffect } from "react";
-import { Box, Flex, Text } from "@chakra-ui/react";
+import { Box, Center, Divider, Flex, Text } from "@chakra-ui/react";
+import Image from "next/image";
+import dressCodeMan from "../../images/wedding-suit.png";
+import dressCodeWoman from "../../images/wedding-dress.png";
 import useIntersectingElement from "../../hooks/useIntersectingElement";
 
 export default function DressCode() {
@@ -28,8 +31,52 @@ export default function DressCode() {
         pt={2}
         pb={4}
       >
-        <Flex h="100px" justifyContent="center" alignItems="center">
-          <Text fontSize="lg">Coming soon...</Text>
+        <Flex height={200} p={4} justifyContent="center" alignItems="center">
+          <Center flex={1} height="100%">
+            <Text mb={2} textAlign="center">
+              Proident magna eu adipisicing mollit pariatur qui laborum.
+            </Text>
+          </Center>
+          <Flex
+            alignItems="center"
+            flexDir="column"
+            justifyContent="center"
+            height="100%"
+          >
+            <Center height="100%">
+              <Divider orientation="vertical" />
+            </Center>
+          </Flex>
+          <Center flex={1} height="100%" justifyContent="space-evenly">
+            <Flex flexDir="column" alignItems="center">
+              <Text mb={2} fontWeight="bold" fontSize="xs">
+                Honom
+              </Text>
+              <Image
+                src={dressCodeMan}
+                alt="Dress code"
+                width={80}
+                height={80}
+              />
+              <Text mt={4} fontSize="lg">
+                Kavaj
+              </Text>
+            </Flex>
+            <Flex flexDir="column" alignItems="center">
+              <Text mb={2} fontWeight="bold" fontSize="xs">
+                Henne
+              </Text>
+              <Image
+                src={dressCodeWoman}
+                alt="Dress code"
+                width={80}
+                height={80}
+              />
+              <Text mt={4} fontSize="lg">
+                Kavaj
+              </Text>
+            </Flex>
+          </Center>
         </Flex>
       </Box>
     </Box>
