@@ -16,6 +16,10 @@ export const phrases = [
     translation: "Dobra večer",
   },
   {
+    phrase: "Jag heter...",
+    translation: "zovem se...",
+  },
+  {
     phrase: "Hur mår du?",
     translation: "kako si?",
   },
@@ -30,14 +34,6 @@ export const phrases = [
   {
     phrase: "utmärkt",
     translation: "odlično",
-  },
-  {
-    phrase: "fin",
-    translation: "lijepo",
-  },
-  {
-    phrase: "vacker",
-    translation: "zgodan/zgodna",
   },
   {
     phrase: "Skål",
@@ -60,11 +56,19 @@ export const phrases = [
     translation: "taman",
   },
   {
-    phrase: "hungrig",
-    translation: "gladan/gladna",
+    phrase: "Jag vill ha...",
+    translation: "želim...",
   },
   {
-    phrase: "törstig",
-    translation: "žedan/žedna",
+    phrase: "mycket",
+    translation: "puno",
+  },
+  {
+    phrase: "fin",
+    translation: "lijepo/lijepa",
+  },
+  {
+    phrase: "vacker",
+    translation: "zgodan/zgodna",
   },
 ];
