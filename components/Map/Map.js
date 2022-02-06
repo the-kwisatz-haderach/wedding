@@ -30,8 +30,8 @@ const createLocations = (t) => [
     image: sirokiBrijeg,
   },
   {
-    lat: 43.387034744817086,
-    lng: 17.59122205063004,
+    lat: 43.37473432038884,
+    lng: 17.58928294603564,
     title: t("churchTitle"),
     description: t("churchDescription"),
     image: church,

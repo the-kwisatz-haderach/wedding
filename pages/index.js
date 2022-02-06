@@ -36,6 +36,7 @@ export async function getStaticProps({ locale }) {
         "schedule",
         "travel",
         "destination",
+        "dressCode",
       ])),
       // Will be passed to the page component as props
     },

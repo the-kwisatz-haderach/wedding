@@ -1,84 +1,56 @@
-import React, { useEffect } from "react";
-import { Box, Center, Divider, Flex, Text } from "@chakra-ui/react";
+import React from "react";
+import { Box, Divider, HStack, Text, VStack } from "@chakra-ui/react";
 import Image from "next/image";
 import dressCodeMan from "../../images/wedding-suit.png";
 import dressCodeWoman from "../../images/wedding-dress.png";
-import useIntersectingElement from "../../hooks/useIntersectingElement";
+import swimSuitWoman from "../../images/swimming-suit_fem.png";
+import swimSuitMan from "../../images/swimming-suit.png";
+import { useTranslation } from "next-i18next";
 
 export default function DressCode() {
-  const [ref, isIntersecting] = useIntersectingElement({
-    removeOnIntersection: true,
-    threshold: 0.5,
-  });
-
-  useEffect(() => {
-    if (ref.current && isIntersecting) {
-      ref.current.children[0].style.transform = "translateX(0vw)";
-    }
-  }, [ref, isIntersecting]);
-
+  const { t } = useTranslation("dressCode");
   return (
-    <Box ref={ref}>
-      <Box
-        borderStyle="solid"
-        borderWidth={1}
-        borderColor="gray.100"
-        transform="translateX(-100vw)"
-        transition="transform 0.8s ease-in-out"
-        backgroundColor="white"
-        borderRadius={20}
-        boxShadow="5px 20px 40px -15px #00000026"
-        pt={2}
-        pb={4}
-      >
-        <Flex height={200} p={4} justifyContent="center" alignItems="center">
-          <Center flex={1} height="100%">
-            <Text mb={2} textAlign="center">
-              Proident magna eu adipisicing mollit pariatur qui laborum.
-            </Text>
-          </Center>
-          <Flex
-            alignItems="center"
-            flexDir="column"
-            justifyContent="center"
-            height="100%"
-          >
-            <Center height="100%">
-              <Divider orientation="vertical" />
-            </Center>
-          </Flex>
-          <Center flex={1} height="100%" justifyContent="space-evenly">
-            <Flex flexDir="column" alignItems="center">
-              <Text mb={2} fontWeight="bold" fontSize="xs">
-                Honom
-              </Text>
-              <Image
-                src={dressCodeMan}
-                alt="Dress code"
-                width={80}
-                height={80}
-              />
-              <Text mt={4} fontSize="lg">
-                Kavaj
-              </Text>
-            </Flex>
-            <Flex flexDir="column" alignItems="center">
-              <Text mb={2} fontWeight="bold" fontSize="xs">
-                Henne
-              </Text>
-              <Image
-                src={dressCodeWoman}
-                alt="Dress code"
-                width={80}
-                height={80}
-              />
-              <Text mt={4} fontSize="lg">
-                Kavaj
-              </Text>
-            </Flex>
-          </Center>
-        </Flex>
-      </Box>
-    </Box>
+    <VStack
+      spacing={10}
+      p={10}
+      border="1px solid rgba(0,0,0,0.05)"
+      borderRadius="25px"
+      boxShadow="xl"
+      divider={<Divider />}
+      maxWidth={600}
+      margin="auto"
+    >
+      <VStack>
+        <Text mb={5} fontSize="4xl" textAlign="center">
+          {t("jacket")}
+        </Text>
+        <HStack spacing={10}>
+          <Box width={[16, 20]} height={[16, 20]} position="relative">
+            <Image
+              src={dressCodeWoman}
+              alt="Dress code"
+              width={80}
+              height={80}
+            />
+          </Box>
+          <Box width={[16, 20]} height={[16, 20]} position="relative">
+            <Image src={dressCodeMan} alt="Dress code" width={80} height={80} />
+          </Box>
+        </HStack>
+      </VStack>
+      <VStack>
+        <Text mb={5} textAlign="center" fontSize={["sm", "md"]}>
+          {t("bathing_clothes")}
+        </Text>
+        <HStack spacing={10}>
+          <Box width={[16, 20]} height={[16, 20]} position="relative">
+            <Image src={swimSuitWoman} alt="Dress code" layout="responsive" />
+          </Box>
+          <Box width={[16, 20]} height={[16, 20]} position="relative">
+            <Image src={swimSuitMan} alt="Dress code" layout="responsive" />
+          </Box>
+        </HStack>
+      </VStack>
+    </VStack>
   );
 }
