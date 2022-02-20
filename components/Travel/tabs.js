@@ -47,7 +47,7 @@ export const after = (t) => [
     imageSrc: sarajevo,
     imageAlt: "sarajevo",
     linkLabel: t("readMore", { ns: "common" }),
-    link: "https://www.tripadvisor.com/Tourism-g295370-Split_Split_Dalmatia_County_Dalmatia-Vacations.html",
+    link: "https://www.tripadvisor.com/Tourism-g294450-Sarajevo_Sarajevo_Canton_Federation_of_Bosnia_and_Herzegovina-Vacations.html",
   },
   {
     title: "Split",

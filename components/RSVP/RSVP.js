@@ -170,8 +170,13 @@ export default function RSVP() {
             </Button>
           </Flex>
           <Flex hidden={Boolean(rsvpId)} flexDir="column">
-            <Flex alignItems="center" justifyContent="center">
+            <Flex
+              alignItems="center"
+              justifyContent="center"
+              flexDir={["column", "row"]}
+            >
               <Button
+                marginBottom={[4, 0]}
                 variant="solid"
                 colorScheme="red"
                 disabled={isLoadingFormData}

@@ -17,7 +17,6 @@ export default function SectionLink({ children, id, index }) {
       colorScheme={index > 0 ? undefined : "red"}
       variant={index > 0 ? "ghost" : "solid"}
       onClick={onClick}
-      textTransform="capitalize"
     >
       {children}
     </Button>

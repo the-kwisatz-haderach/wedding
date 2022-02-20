@@ -137,7 +137,7 @@ export default function HeaderText() {
                 }}
                 className="drop-in"
               >
-                9 {t("july")}
+                {t("july")}
               </Text>
             </Box>
             <Divider
@@ -160,7 +160,7 @@ export default function HeaderText() {
                 }}
                 className="drop-in"
               >
-                2022
+                {t("year")}
               </Text>
             </Box>
           </Flex>
