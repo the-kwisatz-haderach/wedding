@@ -51,9 +51,10 @@ export default async function rsvp(req, res) {
             }?rsvp_id=${existingRow?.id || body.id}`
           )
         );
+        return res.status(200).end();
+      } else {
+        return res.status(200).end();
       }
-
-      res.status(200).end();
     }
     default: {
       return res.status(405).end();

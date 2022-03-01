@@ -124,12 +124,12 @@ export default function RSVPForm({
           <Flex display={["none", "flex"]} mx={4} my={2} alignItems="flex-end">
             <Text fontSize="2xl">&</Text>
           </Flex>
-          <FormControl id="partner_name">
+          <FormControl id="partnerName">
             <FormLabel fontWeight="bold" fontSize="sm">
               {t("partnerNameLabel")}
             </FormLabel>
             <Input
-              {...register("partner_name")}
+              {...register("partnerName")}
               size="lg"
               autoComplete="name"
               disabled={name === ""}

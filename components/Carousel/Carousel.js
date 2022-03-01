@@ -10,7 +10,6 @@ export default function Carousel({ items = [], activeIndex, onChangeIndex }) {
   const goToNext = (e) => {
     e.preventDefault();
     const newIndex = (activeIndex + 1) % items.length;
-    console.log(newIndex);
     onChangeIndex(newIndex);
   };
   const goToPrevious = (e) => {

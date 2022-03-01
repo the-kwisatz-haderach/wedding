@@ -43,10 +43,10 @@ export default function RSVP() {
   }, []);
 
   const onSubmit = handleSubmit(async (data, e) => {
-    setIsLoadingFormData(true);
     e.preventDefault();
     const id = rsvpId || nanoid();
     try {
+      setIsLoadingFormData(true);
       const response = await fetch("/api/rsvp", {
         method: "POST",
         body: JSON.stringify({
@@ -64,7 +64,6 @@ export default function RSVP() {
           message: data.comments,
         }),
       });
-
       if (response.ok) {
         window.localStorage.setItem(RSVP_ID_KEY, id);
         setRsvpId(id);
@@ -90,7 +89,8 @@ export default function RSVP() {
     setShowForm(true);
   };
 
-  const onGetRowData = async () => {
+  const onGetRowData = async (e) => {
+    e.preventDefault();
     try {
       setIsLoadingFormData(true);
       const res = await fetch(`/api/rsvp/${rsvpId}`);
